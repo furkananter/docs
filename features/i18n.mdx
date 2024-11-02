@@ -1,0 +1,51 @@
+---
+title: 'i18n'  
+description: 'Internationalize your app'
+---
+<Tip>
+  I am using `i18next` and `react-i18next` to internationalize my app.
+</Tip>
+
+ ### Simple explanation:
+<Info>
+  If you device language is Turkish, it will show the translations for the Turkish. Otherwise, it will show the translations for English.
+</Info>
+<Steps>
+  <Step>
+  First, go to the `i18n` folder. Then, open the `i18n/index.ts` file.
+  </Step>
+  <Step>
+    Make sure you have the translations for the languages you are using.
+    Like below:
+    ``` javascript i18n/index.ts
+   const resources = {
+  tr: { translation: translationTr },
+  en: { translation: translationEn },
+  de: { translation: translationDe },
+  es: { translation: translationEs },
+  };
+    ```
+  </Step>
+  <Step>
+Important thing is you should have the translations for the languages you are using.
+  </Step>
+  <Step>
+    Define your translations for the languages you are using. Like below:
+    ``` javascript i18n/locales/en-US.ts {3}
+{
+  "language": "...",
+     "success": "Success",
+  ... 
+}
+```
+  </Step>
+  <Step>
+    Finally, you can use the `t` function to get the translations. Like below:
+    ``` javascript component.tsx {1}
+    const { t } = useTranslation();
+
+    return <Text>{t('success')}</Text>
+    ```
+  </Step>
+</Steps>
+

@@ -1,0 +1,52 @@
+---
+title: 'Fonts'  
+description: 'Customize your app fonts'
+---
+<Tip>
+  You can use the `FONT_SIZE` object to define the size of the fonts.
+</Tip>
+
+<Steps>
+  <Step>
+  First, go to the `assets/fonts` folder.
+  </Step>
+  <Step>
+    Add your custom fonts there.
+  </Step>
+  <Step>
+    Then, go to the `constants/AppConstants.ts` file.
+  </Step>
+  <Step>
+    Define your custom fonts there. Like below:
+    ``` javascript constants/AppConstants.ts {16}
+export const FONT_SIZE: Record<FontSize, number> = {
+  xxxs: moderateScale(6),
+  ... 
+};
+
+export const FONT: Record<Font, string> = {
+  // Implement your custom fonts here:
+  // It is really easy to use with this way.
+  sm: 'SpaceMono-Regular',
+    };
+    ```
+  </Step>
+  <Step>
+    Finally, you can use the `FONT_SIZE` and `FONT` objects to style your fonts.
+  </Step>
+  <Step>
+  Make sure your app/_layout.tsx file includes the `fontFamily` prop. Like below:
+  ``` javascript app/_layout.tsx {2}
+  const [loaded] = useFonts({
+    SpaceMono-Regular: require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    // Add more fonts here if needed
+  });
+  ```
+  </Step>
+</Steps>
+
+
+
+<Info>
+ I am using my custom fonts like that and it is really easy to use.
+</Info>

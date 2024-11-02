@@ -1,0 +1,44 @@
+---
+title: 'Theming'
+description: 'Customize your app appearance with theming'
+---
+
+<Tip>
+   Define your colors in the `Colors` object.
+</Tip>
+
+<Steps>
+    <Step>
+    Go to the `constants/Colors.ts` file and define your colors.
+    </Step>
+    <Step>
+    ``` javascript constants/Colors.ts {3-5}
+export const Colors = {
+  light: {
+    primary: '#ffce00',
+    secondary: '#1877F2',
+    tertiary: '#00ff4e',
+    ...
+  },
+  dark: {
+    primary: '#ffce00',
+    secondary: '#1877F2',
+    tertiary: '#00ff4e',
+   ...
+  },
+};
+    ```
+    </Step>
+</Steps>
+
+
+## Features
+
+- Light / Dark / System mode
+- Custom color schemes
+- Dynamic theme switching
+- Theme persistence
+- Component theming
+- Custom fonts
+
+## Theme Provider 

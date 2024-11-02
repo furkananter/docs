@@ -1,91 +1,80 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Ship Mobile Fast",
+  "versions": ["1.0.0"],
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#ffce08",
+    "light": "#ffce08",
+    "dark": "#ffce08",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#ff0000",
+      "to": "#ffce08"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:info@shipmobilefast.com"
+    },
+    {
+      "name": "Affiliate (40%)",
+      "url": "https://shipmobilefast.com/affiliate"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Get Ship Mobile Fast",
+    "url": "https://shipmobilefast.com"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
+
   "navigation": [
     {
       "group": "Get Started",
+      "icon": "rocket",
+      "pages": ["get-started", "setup"]
+    },
+    {
+      "group": "Authentication",
+      "icon": "lock",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "auth/overview",
+        "auth/oauth",
+        "auth/forgot-password",
+        "auth/reset-password",
+        "auth/email-verification"
       ]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+      "group": "Monetization",
+      "icon": "dollar-sign",
+      "pages": ["monetization/admob", "monetization/in-app-purchases"]
     },
     {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "group": "Core Features",
+      "icon": "gear",
+      "pages": ["features/i18n", "features/theming", "features/fonts"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "UI Components",
+      "icon": "sidebar",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "components/overview",
+        "components/buttons",
+        "components/paywall",
+        "components/searchbar",
+        "components/input",
+        "components/social-share"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "x": "https://x.com/shipmobilefast",
+    "github": "https://github.com/shipmobilefast",
+    "instagram": "https://instagram.com/shipmobilefast",
+    "website": "https://shipmobilefast.com"
   }
 }

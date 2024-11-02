@@ -1,0 +1,54 @@
+---
+title: 'AI Chat Template'
+description: 'Build an AI-powered chat application with Expo'
+---
+
+# AI Chat Template
+
+Create sophisticated AI chat applications with our production-ready template powered by OpenAI.
+
+<Note>
+This template provides everything you need to build an AI chat app like ChatGPT, including real-time streaming responses, chat history management, and offline support.
+</Note>
+
+## Features
+<CardGroup cols={2}>
+
+  <Card horizontal title="AI Chat" icon="message-bot">
+    Real-time streaming chat with OpenAI GPT models
+  </Card>
+  <Card title="Chat History" icon="clock-rotate-left">
+    Persistent chat history with SQLite storage
+  </Card>
+  <Card title="Offline Support" icon="wifi-slash">
+    Full offline functionality with message queueing
+  </Card>
+  <Card title="Voice Input" icon="microphone">
+    Speech-to-text for voice commands
+  </Card>
+</CardGroup>
+
+## Architecture
+
+<AccordionGroup>
+  <Accordion icon="layer-group" title="Tech Stack">
+    - Expo SDK 50+
+    - OpenAI API
+    - SQLite for storage
+    - React Native Reanimated
+    - TypeScript
+  </Accordion>
+
+  <Accordion icon="database" title="Data Flow">
+    ```mermaid
+    flowchart LR
+      User[User Input] --> Queue[Message Queue]
+      Queue --> API[OpenAI API]
+      API --> Stream[Stream Response]
+      Stream --> UI[UI Update]
+      Stream --> Storage[SQLite Storage]
+    ```
+  </Accordion>  
+</AccordionGroup>
+
+## Getting Started
