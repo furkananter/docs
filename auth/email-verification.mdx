@@ -1,1 +1,25 @@
- 
+---
+title: Email Verification
+description: If yo.
+---
+
+<Warning>
+    I think you may wonder why we can't using the PASSWORD_RECOVERY event from Supabase.
+</Warning>
+
+Naa, don't worry. I fixed this.
+
+<Steps>
+    <Step>
+    First go to the [Supabase Dashboard](https://supabase.com/dashboard) > `Click on your project` > `Authentication` > `URL Configuration` > `Redirect URLs` > `Add URL`.
+    </Step>
+    <Step>
+    Add the following URL: `<your-app-bundle-identifier>://**`
+    <Info>
+    You can find your app bundle identifier in the `app.json` file.
+    </Info>
+    <Info>
+    You can use `*` as a wildcard for the path.
+    </Info>
+    </Step>
+</Steps>

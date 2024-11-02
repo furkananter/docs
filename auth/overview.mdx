@@ -3,26 +3,148 @@ title: Overview
 description: Ship Mobile Fast comes with pre-built authentication flows using Expo's SecureStore and your choice of authentication providers.
 ---
 
-<Check>
-    Right now, We are supporting Supabase. (Firebase is coming soon.)
-</Check>
 
 ## Features
 
 <CardGroup cols={2}>
-    <Card title="Email/Password" icon="envelope" href="#">
+      <Card title="Email/Password" icon="envelope" href="#">
         Users can sign in with their email and password.
-    </Card>
-    <Card title="Social OAuth" icon="apple" href="#">
+      </Card>
+      <Card title="Social OAuth" icon="apple" href="#">
         We have Google and Apple OAuth support.
-    </Card>
-    <Card title="Magic Link" icon="sparkles" href="#">  
+      </Card>
+      <Card title="Magic Link" icon="sparkles" href="#">  
         Sending a magic link to the user's email address
-    </Card>
-    <Card title="Forgot Password" icon="lock" href="#">
+      </Card>
+      <Card title="Forgot Password" icon="lock" href="#">
         If your users forget their password, they can reset it.
-    </Card>
-    <Card title="Verify Email" icon="envelope" href="#">
+      </Card>
+      <Card title="Verify Email" icon="envelope" href="#">
         Users can verify their email address in the app.
-    </Card> 
-</CardGroup>
+      </Card> 
+    </CardGroup>
+
+<Tabs>
+  <Tab title="Supabase">
+    <Check>
+      Currently implemented and fully supported.
+    </Check>
+
+    ```js {1}
+    import { useAuth } from '@/context/SupabaseProvider';
+
+
+    const {
+      user,
+      session,
+      initialized,
+      signOut,
+      signIn,
+      signUp,
+      sendMagicLink,
+      signInWithGoogle,
+      signInWithApple,
+      createSessionFromUrl,
+      handleShowPassword,
+      isLoading,
+      error,
+      isAuthenticated,
+      showPassword,
+      handleError,
+      sendNewPasswordLink,
+      setNewPassword,
+    } = useAuth();
+    ```
+
+      ## Auth Functions
+    <AccordionGroup>
+      <Accordion title="Sign In With Email/Password">
+
+          To sign in with email/password, use the `signIn` function.
+          ```js 
+          signIn('email@example.com', 'password');
+          ```
+      </Accordion>
+      <Accordion title="Sign Up With Email/Password">
+        To sign up with email/password, use the `signUp` function.
+        ```js 
+        signUp('email@example.com', 'password');
+        ```
+      </Accordion>
+      <Accordion title="Sign In With Google">
+        To sign in with Google, use the `signInWithGoogle` function.
+        ```js 
+        signInWithGoogle();
+        ```
+      </Accordion>
+      <Accordion title="Sign In With Apple">
+        To sign in with Apple, use the `signInWithApple` function.
+        ```js 
+        signInWithApple();
+        ```
+      </Accordion>
+      <Accordion title="Create Session From URL">
+        To create a session from a URL, use the `createSessionFromUrl` function.
+        <Info>
+            Magic happens here. Don't change this.
+        </Info>
+      </Accordion>
+      <Accordion title="Handle Show Password">
+        To handle show password on the password input, use the `handleShowPassword` function.
+        ```js 
+        handleShowPassword();
+        ```
+      </Accordion>
+      <Accordion title="Error Handling">
+        To handle errors, use the `handleError` function.
+        ```js 
+        handleError(error);
+        ```
+      </Accordion>
+      <Accordion title="Send New Password Link">
+        To send a new password link, use the `sendNewPasswordLink` function.
+        ```js 
+        sendNewPasswordLink('email@example.com');
+        ```
+      </Accordion>
+      <Accordion title="Set New Password">
+        To set a new password, use the `setNewPassword` function.
+        ```js 
+        setNewPassword('newPassword');
+        ```
+      </Accordion>
+    </AccordionGroup>    
+
+
+    ### Props
+
+    | Value | Type | Description |
+    |-------|------|-------------|
+    | `user` | `UserMetaData \| null` | Contains current authenticated user information |
+    | `session` | `Session \| null` | Contains active session information |
+    | `initialized` | `boolean` | Indicates if auth state has been initialized |
+    | `signOut` | `() => Promise<void>` | Signs out the current user |
+    | `signIn` | `(email: string, password: string) => Promise<void>` | Signs in user with email/password |
+    | `signUp` | `(email: string, password: string) => Promise<void>` | Creates a new user account |
+    | `sendMagicLink` | `(email: string) => Promise<void>` | Sends a magic link to user's email |
+    | `signInWithGoogle` | `() => Promise<void>` | Initiates Google OAuth sign in |
+    | `signInWithApple` | `() => Promise<void>` | Initiates Apple OAuth sign in |
+    | `createSessionFromUrl` | `(url: string) => Promise<void>` | Creates session from URL |
+    | `handleShowPassword` | `() => void` | Toggles password visibility |
+    | `isLoading` | `boolean` | Indicates if auth operation is in progress |
+    | `error` | `Error \| null` | Contains error information if any |
+    | `isAuthenticated` | `boolean` | Indicates if user is authenticated |
+    | `showPassword` | `boolean` | Controls password visibility state |
+    | `handleError` | `(error:  AuthError | Error) => void` | Handles auth-related errors |
+    | `sendNewPasswordLink` | `(email: string) => Promise<void>` | Sends password reset link |
+    | `setNewPassword` | `(password: string) => Promise<void>` | Sets new password |
+  </Tab>
+
+  <Tab title="Firebase">
+    <Warning>
+      Coming soon.
+    </Warning>
+  </Tab>
+</Tabs>
+
+

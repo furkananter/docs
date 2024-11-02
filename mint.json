@@ -16,6 +16,7 @@
       "to": "#ffce08"
     }
   },
+
   "topbarLinks": [
     {
       "name": "Support",
@@ -30,7 +31,18 @@
     "name": "Get Ship Mobile Fast",
     "url": "https://shipmobilefast.com"
   },
-
+  "anchors": [
+    {
+      "name": "Support",
+      "url": "https://shipmobilefast.com/contact",
+      "icon": "envelope"
+    },
+    {
+      "name": "Follow on X",
+      "url": "https://x.com/shipmobilefast",
+      "icon": "x-twitter"
+    }
+  ],
   "navigation": [
     {
       "group": "Get Started",
@@ -57,6 +69,11 @@
       "group": "Core Features",
       "icon": "gear",
       "pages": ["features/i18n", "features/theming", "features/fonts"]
+    },
+    {
+      "group": "Analytics & Monitoring",
+      "icon": "chart-line",
+      "pages": ["posthog", "sentry"]
     },
     {
       "group": "UI Components",
