@@ -3,11 +3,109 @@ title: 'AdMob Integration'
 description: 'Implement Google AdMob in your Expo app'
 ---
 
-# AdMob Integration
+## How to integrate AdMob in our React Native Expo App?
+1. Firstly, you need to make sure to have an AdMob account. If you don't have one, you can create it [here](https://apps.admob.com/v2/home).
+2. Start the setup by following the steps below.
 
-Monetize your app with Google AdMob using our pre-configured setup.
+### Setup
+<Steps>
 
-## Setup
+    <Step>
+        Go to the [admob.google.com](https://admob.google.com/v2/home) and create your account.
+        <Frame>
+            <img src="/images/setup/admob/admob0.png" alt="AdMob Home" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    </Step>
 
-1. Create AdMob account and get app IDs
-2. Configure app.json: 
+    <Step>
+        You need to create the same app for iOS and Android.
+        <Frame>
+            <img src="/images/setup/admob/admob1.png" alt="AdMob App ID" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    </Step>
+    <Step>
+        Then pick a name for your app:
+        <Frame>
+            <img src="/images/setup/admob/admob2.png" alt="AdMob App Name" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    </Step>
+    <Step>
+        Now you need to create an ad unit for each type of ad.
+        <Frame>
+            <img src="/images/setup/admob/admob3.png" alt="AdMob Ad Unit" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    </Step>
+    <Step>  
+        You can choose a 4 category:
+        <Warning>
+            `Banner`, `Interstitial`, `Rewarded` and `App Open`.
+        </Warning>
+        <Frame>
+            <img src="/images/setup/admob/admob4.png" alt="AdMob App Category" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    </Step>
+    <Step>
+        Now you need to get your app ID for each platform.
+        <Frame>
+            <img src="/images/setup/admob/admob5.png" alt="AdMob App ID" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    </Step>
+    <Step>
+        <Check>
+            Ad Unit Created Successfully.
+        </Check>
+        <Frame>
+            <img src="/images/setup/admob/admob6.png" alt="AdMob Ad Unit ID" className="w-full h-auto max-w-lg rounded-lg" />
+        </Frame>
+    Now get your App ID (first one) and Ad Unit ID (second one) for each platform.
+    </Step>
+
+    <Step>
+        Now, listen carefully to the following steps.
+        <Warning>
+            Open `app.json` file and find code down below:
+        </Warning>
+```json
+plugins: [
+    ...
+        [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-<your-android-app-id>",
+          "iosAppId": "ca-app-pub-<your-ios-app-id>"
+        }
+      ],
+    ...
+]
+```
+    </Step>
+    <Step>
+        <Warning>
+            Go to `services/admobConfig.ts` file and change the values with your own.
+        </Warning>
+    </Step>
+
+    <Step>
+    Now , go to `app/_layout.tsx` file and find code down below:
+    ```tsx app/_layout.tsx {4,8,15,18}
+    import { initializeAdmobService } from '@/services/admob';
+
+    function App(){
+        const { admobState, initializeAdmobService } = useAdmob();
+        useEffect(() => {
+            ...
+            // Ad this line: 👇
+            initializeAdmobService();
+            ...
+            getUserTrackingPermission();
+            ...
+        }, []);
+        // Find this useEffect and change this line: 👇
+        useEffect(() => {
+            if (loaded && initialized && admobState.admobReady.isLoaded) {
+                SplashScreen.hideAsync();
+            }
+  }, [loaded, initialized, admobState.admobReady.isLoaded]); 
+        ```
+    </Step>
+</Steps>

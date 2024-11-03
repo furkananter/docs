@@ -1,13 +1,16 @@
 ---
 title: Email Verification
-description: If yo.
+description: If you want to redirect to the app after email verification, you can do it with the following steps.
 ---
 
-<Warning>
-    I think you may wonder why we can't using the PASSWORD_RECOVERY event from Supabase.
-</Warning>
+## How can I redirect to the app after email verification?
+That is a common question.
 
-Naa, don't worry. I fixed this.
+So many developers asked me this question. 
+
+<Tip>
+    Naa, don't worry. Of course, I fixed this.
+</Tip>
 
 <Steps>
     <Step>
@@ -18,8 +21,19 @@ Naa, don't worry. I fixed this.
     <Info>
     You can find your app bundle identifier in the `app.json` file.
     </Info>
+    You can use `*` as a wildcard for the path. Otherwise, you can use the exact path.
     <Info>
-    You can use `*` as a wildcard for the path.
+    Like this: `com.your-app-bundle-identifier.app://hello-i-am-a-path`
     </Info>
+    </Step>
+    <Step>
+    ### That's it! You don't have to change Email Template. Initial version of the email template is working fine.
+    </Step>
+    <Step>
+    When you click the verification link in the email, you will be redirected to the app.
+    Then you should see the following screen:
+
+    <img src="/images/setup/supabase/verifying.png" alt="Email Verification" className="w-1/2 border-2 border-black rounded-2xl" width={200} />
+
     </Step>
 </Steps>

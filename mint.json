@@ -47,7 +47,7 @@
     {
       "group": "Get Started",
       "icon": "rocket",
-      "pages": ["get-started", "setup"]
+      "pages": ["get-started", "setup", "quickstart"]
     },
     {
       "group": "Authentication",
@@ -80,11 +80,16 @@
       "icon": "sidebar",
       "pages": [
         "components/overview",
+        "components/onboarding",
+        "components/radio-button",
+        "components/checkbox",
         "components/buttons",
         "components/paywall",
         "components/searchbar",
         "components/input",
-        "components/social-share"
+        "components/social-share",
+        "components/dialog",
+        "components/toast"
       ]
     }
   ],

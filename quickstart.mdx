@@ -1,86 +1,214 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: 'Quickstart in 5 minutes'
+description: "Let's get you started in 5 minutes."
 ---
 
-## Setup your development
-
-Learn how to update your docs locally and deploy them to the public.
-
-### Edit and preview
-
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
-
-### Deploy your changes
-
-<AccordionGroup>
-
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
-
-</AccordionGroup>
-
-## Update your docs
-
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
-
+## Super Fast Resources for Shipping:
 <CardGroup>
-
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
+<Card className="flex flex-row gap-4">
+For AI Logo Creator:
+<a href="https://logomeai.partnerlinks.io/5roh64fyuttq">
+  <img src="/images/resources/logome.svg" alt="Logo Creator AI" width={100} />
+</a>
 </Card>
-
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
+<Card className="flex flex-row gap-4">
+For Email SMTP Service:
+<a href="https://brevo.com" className="flex flex-row items-center gap-2">
+  <img src="/images/resources/brevo.png" alt="Brevo" width={30} />
+  <span>Brevo</span>
+</a>
 </Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
 </CardGroup>
+
+<Check> First, make sure you set up your development environment. </Check>
+
+### Then, we are ready to clone the repo.
+#### Open your terminal and run the following command:
+
+<Steps>
+  <Step>
+    ```bash
+    git clone https://github.com/shipmobilefast/shipmobilefast.git [your-project-name]
+    ```
+  </Step>
+  <Step>
+    ```bash
+    cd [your-project-name]
+    ```
+  </Step>
+  <Step>
+    ```bash
+    npm install
+    ```
+  </Step>
+  <Step>
+    ```bash
+    git remote remove origin
+    ```
+  </Step>
+  <Step>
+    Now we are ready to start the development server. But don't start it yet.
+    ```bash
+    npx expo start
+    ```
+  </Step>
+</Steps>
+
+
+### That's it! Our app is ready to be built.
+
+<Info>
+  But we are not done yet. We need to set up the app.json file.
+</Info>
+
+<Steps>
+  <Step>
+  First open your `app.json` file and find these lines:
+  ```json app.json
+   {
+  "expo": {
+    "name": "My App",
+    "slug": "my-app",
+    "scheme": "com.myapp.app",
+    ...
+    "ios": {
+      ...
+      "associatedDomains": ["applinks:myapp.com"],
+      "bundleIdentifier": "com.myapp.app",
+      ...
+    },
+    "android": {
+      ...
+      "package": "com.myapp.app",
+      ...
+      "intentFilters": [
+        {
+          ...
+          "data": [
+            {
+              "scheme": "https",
+              "host": "myapp.com",
+            },
+            {
+              "scheme": "com.myapp.app"
+            }
+          ],
+        }
+     ]
+    },...
+  }
+    ```
+  </Step>
+  <Step>
+  Find an app name for yourself. For example: `Ship Mobile Fast`.
+  </Step>
+  <Step>
+  Then create a slug for your app. For example: `ship-mobile-fast`.
+  </Step>
+  <Step>
+  Then create a bundle identifier for your app. For example: `com.shipmobilefast.app`.
+  <Info>
+    I am using both same like: `com.shipmobilefast.app`.
+  </Info>
+  </Step>
+  <Step>
+  Then replace the values with your own.
+  </Step>
+  <Step>
+  Result should look like this:
+  <Info>
+    I am using `shipmobilefast.com` as my domain. If you don't have one, you can delete the `associatedDomains` and `data` sections.
+    ```json {2-5} app.json
+    "data": [
+          {
+            "scheme": "https",
+            "host": "shipmobilefast.com",
+          },
+          // Don't delete this one 👇
+          {
+            "scheme": "com.shipmobilefast.app"
+          }
+        ]
+    ```
+  </Info>
+  ```json
+  {
+  "expo": {
+    "name": "Ship Mobile Fast",
+    "slug": "ship-mobile-fast",
+    "scheme": "com.shipmobilefast.app",
+    ...
+    "ios": {
+      ...
+      "associatedDomains": ["applinks:shipmobilefast.com"],
+      "bundleIdentifier": "com.shipmobilefast.app",
+      ...
+    },
+    "android": {
+      ...
+      "package": "com.shipmobilefast.app",
+      ...
+      "intentFilters": [
+        {
+          ...
+          "data": [
+            {
+              "scheme": "https",
+              "host": "shipmobilefast.com",
+            },
+            {
+              "scheme": "com.shipmobilefast.app"
+            }
+          ],
+        }
+      ]
+    },
+    ...
+  }
+    ```
+  </Step>
+</Steps>
+
+## Now we need to set up other services. Such as Supabase, RevenueCat, Admob, Sentry, Posthog, etc.
+<Steps>
+  <Step>
+    ```bash
+    cp .env.example .env
+  ```
+  </Step>
+  <Step>
+    Now we need to set up the environment variables one by one. Start with [Supabase](https://supabase.com/).
+    <Frame>
+      <img src="/images/setup/supabase/create.png" alt="Supabase" className="w-full" />
+    </Frame>
+  </Step>
+  <Step>
+    Copy the `URL` and `ANON KEY` and paste them into the `.env` file.
+    <Frame>
+      <img src="/images/setup/supabase/copy-keys.png" alt="Supabase" className="w-full" />
+    </Frame>
+    <Warning>
+      Warning 1: Don't forget to check `.env` file in the `.gitignore` file.
+    </Warning>
+    <Warning>
+      Warning 2: I strongly recommend to set up your own SMTP server. For example: [Brevo](https://brevo.com/). It is free up to 300 emails per day.
+      <Info>
+          I am using it in all my projects.
+      </Info>
+      You can use [Resend](https://resend.com/) too. It's free 100 emails per day.
+    </Warning>
+  </Step>
+  <Step>
+    Now go to the Authentication section and add your app id: like: `com.shipmobilefast.app`.
+    <Frame>
+      <img src="/images/setup/supabase/redirect-url.png" alt="Supabase" className="w-full" />
+    </Frame>
+  </Step>
+  <Step>
+  Now you need to go `app/_layout.tsx` file and uncomment the `<SupabaseProvider>` component.
+  <Info>
+      We are too close to build the app. Hold on!
+  </Info>
+  </Step>
+</Steps>
+
