@@ -52,12 +52,11 @@ description: 'Implement Google AdMob in your Expo app'
     </Step>
     <Step>
         <Check>
-            Ad Unit Created Successfully.
+            Ad Unit Successfully Created.
         </Check>
         <Frame>
             <img src="/images/setup/admob/admob6.png" alt="AdMob Ad Unit ID" className="w-full h-auto max-w-lg rounded-lg" />
         </Frame>
-    Now get your App ID (first one) and Ad Unit ID (second one) for each platform.
     </Step>
 
     <Step>
@@ -106,6 +105,30 @@ plugins: [
                 SplashScreen.hideAsync();
             }
   }, [loaded, initialized, admobState.admobReady.isLoaded]); 
+        ```
+    </Step>
+    <Step>
+        <Info>
+            Now you can use Ads in where you want in your app. For example:
+        </Info>
+        ```tsx app/screens/profile.tsx
+        import { BannerAd } from 'react-native-google-mobile-ads';
+        // import { useAdmob } from '@/hooks/useAdmob';
+
+        const ProfileScreen = () => {
+            const { showInterstitial, showRewarded, showAppOpen } = useAdmob();
+            useEffect(() => {
+                // Show Interstitial Ad
+                showInterstitial();
+                // or  
+                showRewarded();
+                // or
+                showAppOpen();
+            }, []);
+            return (
+                <ProfileComponent .../>
+            );
+        };
         ```
     </Step>
 </Steps>
