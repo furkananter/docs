@@ -1,17 +1,163 @@
 ---
-title: 'Onboarding Components'
+title: 'Onboarding'
 description: 'Customizable onboarding components'
 ---
 
-# Button Components
+## Prebuilt Onboarding Pages
 
-A collection of button components for various use cases.
+You will have 5 prebuilt onboarding pages.
 
-## Available Buttons
+<Frame className="flex flex-row w-full h-full gap-2">
+<img src="/images/components/onboarding/onboarding1.png" alt="Onboarding 1"  className="rounded-lg mr-4" />  
+<img src="/images/components/onboarding/onboarding2.png" alt="Onboarding 2"  className="rounded-lg mr-4" />
+<img src="/images/components/onboarding/onboarding3.png" alt="Onboarding 3"  className="rounded-lg mr-4" />  
+<img src="/images/components/onboarding/onboarding4.png" alt="Onboarding 4"  className="rounded-lg mr-4" />
+<img src="/images/components/onboarding/onboarding5.png" alt="Onboarding 5"  className="rounded-lg" />
+</Frame>
 
-- Primary Button
-- Secondary Button
-- Outline Button
-- Icon Button
-- Social Login Buttons
-- Loading Button 
+## Onboarding Components
+
+### ProgressBar Component
+
+The `ProgressBar` component is used to visually indicate the user's progress. It is commonly utilized in onboarding processes or in applications that require step-by-step progression.
+
+## Props
+
+### Properties
+
+| Prop          | Type     | Description                                      |
+|---------------|----------|--------------------------------------------------|
+| `currentStep` | `number` | The current step number (starting from 0).      |
+| `totalSteps`  | `number` | The total number of steps.                       |
+
+### Usage
+
+Below is an example of how to use the `ProgressBar` component:
+
+```tsx
+
+import React from 'react';
+import { View } from 'react-native';
+import ProgressBar from '@/components/common/onboarding/ProgressBar';
+
+const ExampleComponent = () => {
+    const currentStep = 2; // Example current step
+    const totalSteps = 5; // Total number of steps
+    return (
+        <View>
+            <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
+        </View>
+    );
+};
+export default ExampleComponent;
+```
+
+
+### Styles
+
+The `ProgressBar` component utilizes the following style properties:
+
+- `container`: The main wrapper of the component.
+- `progressContainer`: The wrapper for the progress bar.
+- `progressBar`: The progress bar itself.
+- `checkmark`: The checkmark displayed when completed.
+
+### Animations
+
+The component updates the width of the progress bar and the opacity of the checkmark with animations. These animations are implemented using the `react-native-reanimated` library to enhance the user experience.
+
+### Usage Notes
+
+- Ensure that the `currentStep` and `totalSteps` values are set correctly. `currentStep` should represent a value from 0 up to the total number of steps.
+- The component uses different colors based on the theme. The theme information is obtained using the `useTheme` hook, and the component's appearance is adjusted accordingly.
+
+
+### OnboardingSlide Component
+
+The `OnboardingSlide` component is used to display individual slides in an onboarding process. It features animations and supports Lottie animations and images.
+
+### Props
+
+#### Properties
+
+| Prop        | Type                | Description                                      |
+|-------------|---------------------|--------------------------------------------------|
+| `item`     | `OnboardingItem`    | The onboarding item containing title, description, Lottie animation, and image. |
+| `index`    | `number`            | The index of the current slide (starting from 0). |
+| `scrollX`  | `SharedValue<number>`| A shared value representing the horizontal scroll position. |
+
+### Usage
+
+Below is an example of how to use the `OnboardingSlide` component:
+```tsx 
+import React from 'react';
+import { View } from 'react-native';
+import { OnboardingSlide } from '@/components/common/onboarding';
+import { SharedValue } from 'react-native-reanimated';
+const ExampleComponent = () => {
+    const scrollX: SharedValue<number> = { value: 0 }; // Example shared value
+    const item = {
+        title: 'Welcome',
+        description: 'This is the first step of the onboarding process.',
+        lottie: require('@/assets/lottie/welcome.json'), // Lottie or Image
+        // image: require('@/assets/images/welcome.png'),
+    };
+    return (
+        <View>
+            <OnboardingSlide item={item} index={0} scrollX={scrollX} /> 
+        </View>
+    );
+};
+export default ExampleComponent;
+```
+
+## OnboardingSlideButton Component
+
+The `OnboardingSlideButton` component is used to display a button in the onboarding process. It allows users to proceed to the next step or perform an action.
+
+### Props
+
+#### Properties
+
+| Prop   | Type     | Description                                      |
+|--------|----------|--------------------------------------------------|
+| `onPress` | `() => void` | A function to be called when the button is pressed. |
+| `text`  | `string` | The text to be displayed on the button.         |
+
+### Usage
+
+Below is an example of how to use the `OnboardingSlideButton` component:
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import OnboardingSlideButton from '@/components/common/onboarding/OnboardingSlideButton';
+const ExampleComponent = () => {
+    const handlePress = () => {
+        console.log('Button pressed!');
+    };
+    return (
+        <View>
+            <OnboardingSlideButton onPress={handlePress} text="Next" />
+        </View>
+    );
+};
+export default ExampleComponent;
+```
+
+
+## Styles
+
+The `OnboardingSlideButton` component utilizes the following style properties:
+
+- `button`: The main style for the button.
+- `buttonText`: The style for the button text.
+
+## Animations
+
+The component may include animations for button press feedback, enhancing the user experience.
+
+## Usage Notes
+
+- Ensure that the `onPress` function is defined to handle the button press event.
+- The `text` prop should be a string that clearly indicates the action the button will perform.
+- The button's appearance may vary based on the current theme, as it uses the `useTheme` hook to adapt its styles accordingly.

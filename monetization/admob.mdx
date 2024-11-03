@@ -62,7 +62,7 @@ description: 'Implement Google AdMob in your Expo app'
     <Step>
         Now, listen carefully to the following steps.
         <Warning>
-            Open `app.json` file and find code down below:
+            Open `app.json` file and add the following code down below:
         </Warning>
 ```json
 plugins: [
@@ -113,7 +113,10 @@ plugins: [
         </Info>
         ```tsx app/screens/profile.tsx
         import { BannerAd } from 'react-native-google-mobile-ads';
-        // import { useAdmob } from '@/hooks/useAdmob';
+        // If you want to use other Ad types, use this import: 👇
+        import { useAdmob } from '@/hooks/useAdmob';
+        // If you want to use Banner AD, use this import: 👇
+        import { admobConfig } from '@/services/admob/admobConfig';
 
         const ProfileScreen = () => {
             const { showInterstitial, showRewarded, showAppOpen } = useAdmob();
@@ -126,7 +129,13 @@ plugins: [
                 showAppOpen();
             }, []);
             return (
-                <ProfileComponent .../>
+                <>
+                    <BannerAd
+                        unitId={admobConfig.bannerAdUnitId}
+                        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                    />
+                    <ProfileComponent .../>
+                </>
             );
         };
         ```

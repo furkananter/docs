@@ -3,44 +3,55 @@ title: 'Sentry'
 description: 'Set up Sentry for error tracking'
 ---
 
-## Prerequisites
-
-- Node.js 18 or newer
-- Git
-- Expo CLI
-- iOS Simulator (for Mac users) or Android Studio
+We are using [Sentry](https://sentry.io/) to track errors.
 
 ## Quick Start
 <Steps>
   <Step>
-  First, go to the [Expo Environment Setup](https://docs.expo.dev/get-started/set-up-your-environment/) and follow the steps to set up your environment.
-  <Warning>
-  Make sure you have the latest version of Node.js, Git, and Expo CLI.  
-  </Warning>
-  <Warning>
-  You can not use `Expo Go`. Because we are using some features that are not supported by `Expo Go`.
-  </Warning>
-  <Tip>
-  You should pick `Expo Development Build` section.
-  </Tip>
-
+  First, go to the [Sentry](https://sentry.io/) and create a account.
   </Step>
   <Step>
+  After you create your account, click start button.
+  <Frame>
+  <img src="/images/sentry/sentry1.png" alt="Sentry New Project" className="rounded-2xl w-full" />
+  </Frame>
+  </Step>
+  <Step>
+  After you click start button, you will see this screen.
+  Pick React Native and go to next step.
+  <Frame>
+  <img src="/images/sentry/sentry2.png" alt="Sentry New Project" className="rounded-2xl w-full" />
+  </Frame>
+  </Step>
+  <Step>
+  After you click next, you will see this screen.
   <Info>
-  EAS CLI is a tool that allows you to build and run your app on different platforms. (Its paid but no worries. We will use it for free.)
+    You don't need to install anything.
   </Info>
+  <Frame>
+  <img src="/images/sentry/sentry3.png" alt="Sentry New Project" className="rounded-2xl w-full" />
+  </Frame>
+  Just copy your dsn: `...` and paste it here:
+  ```tsx app/_layout.tsx
+  import * as Sentry from '@sentry/react-native';
 
-  <img src="/images/setup/expo-android-setup.png" alt="Expo Android Setup" className="rounded-2xl" />
-
-  Click on the switch button to disable the EAS CLI. Then you need to make sure you have done all the steps correctly. For IOS and Android.
-  </Step>
-  <Step >
-  ## It should look like this:
-  <img src="/images/setup/setup.png" alt="Expo Setup" className="rounded-2xl" />
+  Sentry.init({
+    dsn: 'your-sentry-dsn-here',
+    tracesSampleRate: 1.0,
+    _experiments: {
+      profilesSampleRate: 1.0,
+    },
+  });
+  ```
   </Step>
   <Step>
-  <Warning>
-  And you need to finish the steps for IOS Simulator and Android Emulator.
-  </Warning>
+  After you paste your dsn, go to the bottom of the app/_layout.tsx file and change this:
+  ```tsx app/_layout.tsx
+  export default Sentry.wrap(App);
+  ```
   </Step>
 </Steps>
+
+<Check>
+Thats it. You are done.
+</Check>

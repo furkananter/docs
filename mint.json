@@ -89,7 +89,8 @@
         "components/input",
         "components/social-share",
         "components/dialog",
-        "components/toast"
+        "components/toast",
+        "components/loader"
       ]
     }
   ],
@@ -98,5 +99,8 @@
     "github": "https://github.com/shipmobilefast",
     "instagram": "https://instagram.com/shipmobilefast",
     "website": "https://shipmobilefast.com"
+  },
+  "feedback": {
+    "thumbsRating": true
   }
 }

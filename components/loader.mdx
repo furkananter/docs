@@ -1,0 +1,50 @@
+---
+title: 'Loader'
+description: 'Customizable loader component'
+---
+
+
+
+The `Loader` component is used to display a loading indicator while content is being fetched or processed. It provides visual feedback to users during asynchronous operations.
+
+## Props
+
+### Properties
+
+| Prop   | Type                | Description                                      |
+|--------|---------------------|--------------------------------------------------|
+| `size` | `'small' | 'large'` | The size of the loader, which can be either 'small' or 'large'. Defaults to 'small'. |
+
+## Usage
+
+Below is an example of how to use the `Loader` component:
+
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import Loader from '@/components/common/loader/Loader';
+const ExampleComponent = () => {
+    return (
+        <View>
+            <Loader size="large" />
+        </View>
+    );
+};
+export default ExampleComponent;
+```
+
+
+## Styles
+
+The `Loader` component utilizes the following style properties:
+
+- `loaderContainer`: The main wrapper for the loader.
+
+## Animations
+
+The `Loader` component uses the `ActivityIndicator` from React Native, which includes built-in animations for the loading spinner.
+
+## Usage Notes
+
+- The `size` prop allows customization of the loader's size. Ensure to choose an appropriate size based on the context in which the loader is used.
+- The loader's color is determined by the current theme, utilizing the `useTheme` hook to adapt its appearance based on the selected theme mode.
