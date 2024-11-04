@@ -61,6 +61,11 @@
       ]
     },
     {
+      "group": "Database",
+      "icon": "database",
+      "pages": ["database/supabase", "database/firebase", "database/mongodb"]
+    },
+    {
       "group": "Monetization",
       "icon": "dollar-sign",
       "pages": ["monetization/admob", "monetization/in-app-purchases"]
@@ -68,7 +73,12 @@
     {
       "group": "Core Features",
       "icon": "gear",
-      "pages": ["features/i18n", "features/theming", "features/fonts"]
+      "pages": [
+        "features/expo-router",
+        "features/i18n",
+        "features/theming",
+        "features/fonts"
+      ]
     },
     {
       "group": "Analytics & Monitoring",
@@ -80,6 +90,7 @@
       "icon": "sidebar",
       "pages": [
         "components/overview",
+        "components/styling",
         "components/onboarding",
         "components/radio-button",
         "components/checkbox",

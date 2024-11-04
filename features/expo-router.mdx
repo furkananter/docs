@@ -1,0 +1,75 @@
+---
+title: 'Expo Router'
+description: 'Set up Expo Router'
+---
+
+We are using [Expo Router](https://docs.expo.dev/routing/) to handle navigation.
+
+This is the best navigation solution for React Native i think.
+
+Deeplinks are automatically handled.
+
+## Quick Start
+
+You probably confused with `index.tsx` and `app/_layout.tsx`.
+
+
+## Understanding URLs in Expo Router
+
+When working with Expo Router, it's important to understand how file paths are converted to URLs. Here's how it works:
+
+
+### URL Conversion Rules
+
+<Steps>
+  <Step title="Get the File Path">
+    Right click on your file and choose "copy relative path". You'll see something like:
+    ```
+    app/(tabs)/(home)/index.tsx
+    ```
+  </Step>
+
+  <Step title="Remove app Directory">
+    Remove 'app' since it's not part of the URL:
+    ```
+    app/(tabs)/(home)/index.tsx -> (tabs)/(home)/index.tsx
+    ```
+  </Step>
+
+  <Step title="Remove Group Indicators">
+    Remove any routes with () since they're just used for grouping and not part of the URL:
+    ```
+    (tabs)/(home)/index.tsx -> /index.tsx
+    ```
+  </Step>
+
+  <Step title="Replace index">
+    Replace any filenames called 'index' with / because that's not part of the URL:
+    ```
+    /index.tsx -> /
+    ```
+  </Step>
+</Steps>
+
+### Examples
+
+Here are some common examples of how file paths map to URLs:
+
+- app/(tabs)/(home)/index.tsx -> /
+- app/(tabs)/(home)/details.tsx -> /details
+- app/(tabs)/carts/index.tsx -> /carts
+- app/(tabs)/carts/checkout.tsx -> /carts/checkout
+
+
+<Warning>
+  You can't have two files end up with the same URL. For example, having both `(home)/index` and `(carts)/index` won't work because they would both resolve to the same URL, which is not possible.
+</Warning>
+
+The main thing to keep in mind is that you can't have two files end up with the same URL. For example, having both `(home)/index` and `(carts)/index` won't work because they would both resolve to the same URL, which is not possible.
+
+
+<Check>
+Thats it. You are done. Now let's try to create a new page and test it!
+</Check>
+
+credit: [Kadi Kraman](https://x.com/kadikraman/status/1842249504877158810) (thanks to explanation)
