@@ -4,7 +4,7 @@ description: "Let's get you started in 5 minutes."
 ---
 
 <Frame>
-<img src="/images/quickstart.png" alt="Quickstart" className="w-full h-full object-contain rounded-xl" />
+<img src="/images/quickstart.png" alt="Quickstart" className="w-full h-full rounded-xl" />
 </Frame>
 
 <Check> First, make sure you set up your development environment. </Check>
@@ -130,23 +130,23 @@ For Email SMTP Service:
   Result should look like this:
   <Info>
     I am using `shipmobilefast.com` as my domain. If you don't have one, you can delete the `associatedDomains` and `data` sections.
-    ```json {2-5} app.json
-    "data": [
-          {
-            "scheme": "https",
-            "host": "shipmobilefast.com",
-          },
-          // Don't delete this one 👇
-          {
-            "scheme": "com.shipmobilefast.app"
-          }
-        ]
+```json {2-5} app.json
+  "data": [
+      {
+        "scheme": "https",
+        "host": "shipmobilefast.com",
+      },
+      // Don't delete this one 👇
+      {
+        "scheme": "com.shipmobilefast.app"
+      }
+    ]
     ```
   </Info>
-  ```json
+```json
   {
-  "expo": {
-    "name": "Ship Mobile Fast",
+    "expo": {
+      "name": "Ship Mobile Fast",
     "slug": "ship-mobile-fast",
     "scheme": "com.shipmobilefast.app",
     ...
@@ -177,11 +177,11 @@ For Email SMTP Service:
     },
     ...
   }
-    ```
+```
   </Step>
 </Steps>
-
-## Now we need to set up other services. Such as Supabase, RevenueCat, Admob, Sentry, Posthog, etc.
+## Supabase
+### Now we need to set up Supabase.
 <Steps>
   <Step>
     ```bash
@@ -217,7 +217,6 @@ For Email SMTP Service:
     </Frame>
   </Step>
   <Step>
-  Now you need to go `app/_layout.tsx` file and uncomment the `<SupabaseProvider>` component.
   <Info>
       We are too close to build the app. Hold on!
   </Info>

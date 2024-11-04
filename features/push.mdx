@@ -1,0 +1,92 @@
+---
+title: Push Notifications
+description: How to use Expo Push Notifications in Ship Mobile Fast
+---
+
+<Frame>
+    <img src="/images/push.png" alt="Push Notifications" className="w-full h-full rounded-lg" />
+</Frame>
+
+## Overview
+We are using [Expo Push Notifications](https://docs.expo.dev/push-notifications/overview/) to send push notifications to your users.
+
+## Setup
+Actually I handled this in codebase. If you interested, you can go to the `@/hooks/usePushNotifications.ts` file.
+
+With this hook, your user can get notifications in background, on lock screen, and in notification center automatically.
+
+You don't need to do anything else but I want to give you some hints:
+<Steps>
+    <Step>
+    Go to your `@/hooks/usePushNotifications` file. You'll see bunch of codes. But Important part is:
+```typescript
+    const { expoPushToken, sendPushNotification, notification } = usePushNotification();
+```
+    </Step>
+    <Step>
+        `expoPushToken` is your user's push token. You can use this token to send push notifications to your user.
+    </Step>
+    <Step>
+        `sendPushNotification` is a function to send push notifications to your user.
+    </Step>
+    <Step>
+        `notification` is a hook to get the notification data.
+    </Step>
+</Steps>
+
+## Types
+```tsx
+import * as Notifications from 'expo-notifications';
+
+interface PushNotificationReturnType {
+  expoPushToken: string | undefined;
+  notification: Notifications.Notification | null;
+  sendPushNotification: (expoPushToken: string) => Promise<void>;
+}
+```
+
+## Advanced
+If you want to send advanced notifications, you should create Supabase Edge Functions. Let me tell you step by step.
+But I am not going to code this in this documentation. Because it is project specific.
+
+<Steps>
+  <Step>
+    I assumed you already set up Supabase and created your tables. Such as `profiles`, `likes`, `comments`, etc.
+  </Step>
+  <Step>
+    Go to Supabase Edge Function documentation. Which is: [Supabase Edge Functions](https://supabase.com/docs/guides/functions).
+  </Step>
+  <Step>
+    Click `Get Started` button and open your terminal.
+    ```bash
+        supabase init
+    ```
+    <Warning>
+        You should have Supabase CLI installed. If you don't have, follow the documentation.
+    </Warning>
+  </Step>
+  <Step>
+    Then you need to create a new Edge Function. Like:
+    ```bash
+        supabase functions new send-push-notification
+    ```
+  </Step>
+  <Step>
+    Open your `supabase/functions/send-push-notification` folder. And you will see the `index.ts` file.
+  </Step>
+  <Step>
+    Now we need to integrate with Expo Push Notifications.
+    You can follow this link: [Sending Notifications](https://docs.expo.dev/push-notifications/sending-notifications/)
+  </Step>
+  <Step>
+    If you got stuck, you can watch this video:
+    <iframe src="https://www.youtube.com/embed/xYRbYG77M_o" width="100%" height="400px" className="rounded-xl"></iframe>
+  </Step>
+  <Step>
+    Now you can use Edge Functions and send push notifications to your users.
+    <Warning>
+        Don't forget to use webhooks.
+    </Warning>
+  </Step>
+</Steps>
+

@@ -1,17 +1,70 @@
 ---
-title: 'Button Components'
-description: 'Customizable button components'
+title: 'Searchbar'
+description: 'A customizable search bar component for React Native applications with animation and haptic feedback.'
 ---
 
-# Button Components
+`Searchbar` is a customizable search input component designed for React Native applications. It features animated transitions, haptic feedback, and integrates seamlessly with user input.
 
-A collection of button components for various use cases.
+## Installation
 
-## Available Buttons
+Ensure you have the necessary dependencies:
 
-- Primary Button
-- Secondary Button
-- Outline Button
-- Icon Button
-- Social Login Buttons
-- Loading Button 
+```bash
+npm install react-native-reanimated expo-haptics
+```
+
+## Import
+
+```javascript
+import Searchbar from '@/components/common/searchbar';
+```
+
+
+## Props
+
+| Prop            | Type                                             | Required | Description                                           |
+|-----------------|--------------------------------------------------|----------|-------------------------------------------------------|
+| `{value}`       | `string`                                        | Yes      | The current value of the search input.                |
+| `{onChangeText}`| `(text: string) => void`                        | Yes      | Function to call when the text changes.               |
+| `{onFocus}`     | `(e: NativeSyntheticEvent<TextInputFocusEventData>) => void` | No       | Function to call when the input is focused.           |
+| `{onBlur}`      | `(e: NativeSyntheticEvent<TextInputFocusEventData>) => void` | No       | Function to call when the input loses focus.          |
+| `{onCancel}`    | `() => void`                                   | No       | Function to call when the cancel button is pressed.   |
+| `{placeholder}` | `string`                                       | No       | Placeholder text for the input.                       |
+
+## Usage
+
+### Basic Usage
+
+```typescript
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/store';
+import Searchbar from '@/components/common/searchbar';
+
+const MySearchComponent = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const query = useSelector((state: RootState) => state.search.query);
+
+    return (
+         <Searchbar
+            value={query}
+            onChangeText={(text) => dispatch(setQuery(text))}
+        />
+    );
+};
+```
+
+### Explanation
+
+- **`{value}`**: This prop is required and represents the current text in the search input.
+- **`{onChangeText}`**: This prop is required and defines the function that will be executed when the text changes.
+- **`{onFocus}`**: This optional prop allows you to handle focus events.
+- **`{onBlur}`**: This optional prop allows you to handle blur events.
+- **`{onCancel}`**: This optional prop defines the function that will be executed when the cancel button is pressed.
+- **`{placeholder}`**: This optional prop sets the placeholder text for the input field.
+
+### Animation and Feedback
+
+The `Searchbar` component features animated transitions for focus and blur states, providing a smooth user experience. Haptic feedback is triggered on cancel actions, enhancing interactivity.
+
+This component is ideal for implementing search functionality in your React Native applications, ensuring a responsive and user-friendly interface.

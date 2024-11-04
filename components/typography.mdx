@@ -1,0 +1,63 @@
+---
+title: 'Typography'
+description: 'Typography'
+---
+
+This is basically `Text` component from npx create-expo-app. But I improved a little bit.
+Now its better to use.
+
+<Steps>
+  <Step>
+    You can import the `ThemedText` component like below:
+    ```tsx  {1}
+    import { ThemedText } from '@/components/common/ThemedText';
+    ```
+  </Step>
+  <Step>
+    You can use the `ThemedText` component like below:
+    ```tsx  {1}
+    <ThemedText>Hello</ThemedText>
+    ```
+  </Step>
+</Steps>
+
+Initially, you don't need to set color. It will be automatically set based on the theme.
+If dark mode is enabled, it will be white. Otherwise, it will be black.
+
+But it is not done yet. You can make a header this ThemedText component.
+
+<Steps>
+  <Step>
+    If you want to look. Go to the `@/components/common/ThemedText.tsx` file.
+  </Step>
+  <Step>
+    You will see:
+```tsx 
+    return (
+      <Text
+      style={[
+        { color },
+        type === 'default' ? styles.default : undefined,
+        type === 'title' ? styles.title : undefined,
+        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
+        type === 'subtitle' ? styles.subtitle : undefined,
+        type === 'link' ? styles.link : undefined,
+        style,
+      ]}
+      {...rest}
+    />
+  );
+```
+  </Step>
+  <Info>
+    `type` is a prop that you can pass to the `ThemedText` component. It will determine the style of the text.
+  </Info>
+</Steps>
+
+### Usage
+
+You can use the `ThemedText` component like below:
+
+```typescript
+<ThemedText type="title">Hello</ThemedText>
+```

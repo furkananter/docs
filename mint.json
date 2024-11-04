@@ -70,7 +70,10 @@
       "group": "Core Features",
       "icon": "gear",
       "pages": [
+        "features/backend",
+        "features/push",
         "features/expo-router",
+        "features/redux",
         "features/i18n",
         "features/theming",
         "features/fonts"
@@ -82,22 +85,47 @@
       "pages": ["posthog", "sentry"]
     },
     {
+      "group": "Prebuilt Screens",
+      "icon": "layers",
+      "pages": [
+        "screens/onboarding",
+        "screens/auth",
+        "screens/profile",
+        "screens/search",
+        "screens/paywall",
+        "screens/settings",
+        "screens/social-share",
+        "screens/delete-account"
+      ]
+    },
+    {
       "group": "UI Components",
       "icon": "sidebar",
       "pages": [
         "components/overview",
-        "components/styling",
-        "components/onboarding",
+        "components/view",
+        "components/button",
+        "components/pressable-opacity",
         "components/radio-button",
-        "components/checkbox",
-        "components/buttons",
-        "components/paywall",
+        "components/ripple-button",
+        "components/shiny-button",
+        "components/rainbow-button",
+        "components/rainbow-button-2",
+        "components/rainbow-button-3",
+        "components/language-button",
+        "components/icons",
+        "components/images",
+        "components/collapsible",
+        "components/container",
+        "components/typography",
         "components/searchbar",
         "components/input",
-        "components/social-share",
+        "components/form-field",
         "components/dialog",
         "components/toast",
-        "components/loader"
+        "components/loader",
+        "components/styling",
+        "components/normalize"
       ]
     }
   ],

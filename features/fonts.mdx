@@ -4,8 +4,10 @@ description: 'Customize your app fonts'
 ---
 
 <Frame>
-<img src="/images/fonts.png" alt="Fonts" className="w-full h-full object-contain rounded-xl" />
+<img src="/images/fonts.png" alt="Fonts" className="w-full h-full rounded-xl" />
 </Frame>
+
+
 <Tip>
   You can use the `FONT_SIZE` object to define the size of the fonts.
 </Tip>
@@ -26,20 +28,27 @@ description: 'Customize your app fonts'
   <Step>
     Define your custom fonts there. Like below:
     ``` javascript constants/AppConstants.ts {16}
-export const FONT_SIZE: Record<FontSize, number> = {
-  xxxs: moderateScale(6),
-  ... 
-};
-
-export const FONT: Record<Font, string> = {
-  // Implement your custom fonts here:
-  // It is really easy to use with this way.
-  sm: 'SpaceMono-Regular',
+  export const FONT_SIZE: Record<FontSize, number> = {
+    xxxs: moderateScale(6),
+    ... 
     };
+  export const FONT: Record<Font, string> = {
+    // Implement your custom fonts here:
+    // It is really easy to use with this way.
+    sm: 'SpaceMono-Regular',
+  };
     ```
   </Step>
   <Step>
-    Finally, you can use the `FONT_SIZE` and `FONT` objects to style your fonts.
+    Finally, you can use the `FONT_SIZE` and `FONT` objects to style your fonts. Like below:
+    ``` javascript components/Text.tsx {3-4} 
+    const styles = StyleSheet.create({
+      text: {
+        fontFamily: FONT.sm,
+        fontSize: FONT_SIZE.sm,
+      },
+    });
+    ``` 
   </Step>
   <Step>
   Make sure your app/_layout.tsx file includes the `fontFamily` prop. Like below:

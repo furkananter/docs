@@ -1,0 +1,46 @@
+---
+title: Search
+description: Search Screen
+---
+
+## Prebuilt Search Screen
+
+You have prebuilt Search Screen with Super Compatible [SearchBar](/components/searchbar).
+
+<Frame className="flex flex-row w-full h-full gap-2">
+<img src="/images/screens/search.png" alt="Search"  className="rounded-lg mr-4" />  
+</Frame>
+
+<Note>
+    Path: `/app/(auth)/(tabs)/search.tsx`
+</Note>
+
+<Info>
+    You can customize the screen with your own design.
+</Info>
+
+### Result:
+
+<Frame className="w-3/4 aspect-square">
+<img src="/images/mockups/search.png" alt="Search Result" width={300} />  
+</Frame>
+
+### Custom Search Functionality
+How can you make it?
+
+<Steps>
+<Step>
+   Go to the `/app/(tabs)` folder and create a new folder with the name `search`.
+</Step>
+<Step>
+<Tip>
+    Create a slug with `[id].tsx` and add it to the the `search` folder.
+</Tip>
+</Step>
+<Step>
+    Add the search functionality to the `search/[id].tsx` file.
+</Step>
+<Step>
+    Thats it! You have a custom search functionality. Like [Kroko Social](https://kroko.social)
+</Step>
+</Steps>

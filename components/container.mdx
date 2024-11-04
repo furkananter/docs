@@ -1,0 +1,50 @@
+---
+title: Container
+description: Container component
+---
+
+The `Container` component is used to wrap child components and provide a safe area.
+
+## Props
+
+| Prop      | Type                     | Description                                                              |
+|-----------|--------------------------|--------------------------------------------------------------------------|
+| children  | `React.ReactNode`        | The child components to be rendered inside the container.               |
+| style     | `StyleProp<ViewStyle>`   | Optional styles to apply to the container.                              |
+| edges     | `Edge[]`                 | Determines which edges of the safe area should be considered.          |
+| bgColor   | `string`                 | The background color of the container.                                  |
+
+## Usage Example
+
+<Tip>
+    First, you need to import the `Container` component.
+</Tip>
+
+<Steps>
+  <Step>
+    You can use the `Container` component like below:
+    ```tsx  {1}
+    import { Container } from '@/components/common/Container';
+    ```
+  </Step>
+  <Step>
+    You can use it like below:
+```tsx
+  <Container edges={['top', 'bottom']} 
+    // Default bgColor is working with your device theme.
+    // If you want to change it, you can do it.
+     bgColor="red" 
+    >
+     {children}
+  </Container>
+```
+  </Step>
+  <Step>
+    You can use it in Chat Screens, Video Swiping Screens, etc.. It is useful for these screens.
+    Otherwise, I don't recommend to use it too much.
+  </Step>
+</Steps>
+
+
+## Properties:
+

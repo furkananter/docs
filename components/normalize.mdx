@@ -1,0 +1,47 @@
+---
+title: Normalization
+description: Learn how to normalize the components.
+---
+
+### What is Normalization?
+
+Normalization is a process of making the components look consistent and beautiful.
+
+### How to use Normalization?
+
+<Steps>
+    <Step>
+        Go to `@/constants/appConstants.tsx` file.
+    </Step>
+    <Step>
+        You'll see `normalize` function. For example:
+    </Step>
+    <Step>
+```tsx
+    export const ScreenHeight: number = SCREEN_HEIGHT;
+    export const ScreenWidth: number = SCREEN_WIDTH;
+
+    export const PADDING: Record<PaddingSize, number> = {
+        xxxs: scale(1),
+        xxs: scale(2),
+        xs: scale(4),
+        sm: scale(8),
+        md: scale(16),
+        lg: scale(24),
+        xl: scale(32),
+        xxl: scale(40),
+        xxxl: scale(48),
+    };
+```
+    </Step>
+    <Step>
+        You can use this constants to make your components look consistent. For Example:
+    </Step>
+    <Step>
+```tsx
+    <View style={{ padding: PADDING.md }}>
+        <Text style={{ fontSize: FONT_SIZE.lg }}>Hello</Text>
+    </View>
+```
+    </Step>
+</Steps>

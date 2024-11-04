@@ -3,6 +3,10 @@ title: 'AdMob Integration'
 description: 'Implement Google AdMob in your Expo app'
 ---
 
+<Frame>
+    <img src="/images/features/admob.png" alt="AdMob Home" className="w-full h-full rounded-lg" />
+</Frame>
+
 ## How to integrate AdMob in our React Native Expo App?
 1. Firstly, you need to make sure to have an AdMob account. If you don't have one, you can create it [here](https://apps.admob.com/v2/home).
 2. Start the setup by following the steps below.
@@ -86,8 +90,9 @@ plugins: [
 
     <Step>
     Now , go to `app/_layout.tsx` file and find code down below:
-    ```tsx app/_layout.tsx {4,8,15,18}
+    ```tsx app/_layout.tsx {1,2,5,9,16,19}
     import { initializeAdmobService } from '@/services/admob';
+    import { useAdmob } from '@/hooks/useAdmob';
 
     function App(){
         const { admobState, initializeAdmobService } = useAdmob();
@@ -111,7 +116,7 @@ plugins: [
         <Info>
             Now you can use Ads in where you want in your app. For example:
         </Info>
-        ```tsx app/screens/profile.tsx
+        ```tsx app/screens/profile.tsx {1,3,5}
         import { BannerAd } from 'react-native-google-mobile-ads';
         // If you want to use other Ad types, use this import: 👇
         import { useAdmob } from '@/hooks/useAdmob';

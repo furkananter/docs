@@ -1,0 +1,188 @@
+---
+title: 'Button'
+description: 'A customizable button component for React Native applications with haptic feedback support'
+---
+
+A flexible and reusable button component that supports icons, loading states, and haptic feedback. Built for React Native applications with full TypeScript support and theme integration.
+
+## Installation
+
+The Button component requires the following dependencies:
+
+- **This is already installed in the project.**
+
+```bash
+npm install expo-haptics
+```
+
+## How to Import?
+```typescript
+import Button from '@/components/common/buttons/button';
+```
+
+
+## Features
+
+- Haptic feedback support (on native platforms)
+- Loading state with ActivityIndicator
+- Icon support (left or right positioned)
+- Customizable styling
+- Theme integration
+- Disabled state
+- Pressed state animation
+- TypeScript support
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `onPress` | `() => void` | Yes | Function to call when button is pressed |
+| `children` | `React.ReactNode` | Yes | Content to display inside the button |
+| `style` | `ViewStyle \| ViewStyle[]` | No | Custom styles for the button |
+| `textStyle` | `TextStyle` | No | Custom styles for the text |
+| `bgColor` | `string` | No | Background color of the button |
+| `disabled` | `boolean` | No | Disables the button when true |
+| `loading` | `boolean` | No | Shows loading indicator when true |
+| `icon` | `React.ReactNode` | No | Icon component to display |
+| `iconPosition` | `'left' \| 'right'` | No | Position of the icon (default: 'left') |
+| `borderColor` | `string` | No | Color of the button border |
+| `borderWidth` | `number` | No | Width of the button border |
+| `height` | `number` | No | Custom height for the button |
+
+## Usage
+
+### Basic Usage
+
+```typescript
+import Button from '@/components/common/buttons/button';
+const MyComponent = () => {
+    return (    
+        <Button onPress={() => console.log('Button pressed')}>
+            Click me
+        </Button>
+    );
+}
+```
+
+### With Loading State
+
+```typescript
+import Button from '@/components/common/buttons/button';
+import { useState } from 'react';
+
+function LoadingButton() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handlePress = async () => {
+    setIsLoading(true);
+    // Perform async operation
+    await someAsyncOperation();
+    setIsLoading(false);
+  };
+
+  return (
+    <Button
+      onPress={handlePress}
+      loading={isLoading}
+    >
+      Submit
+    </Button>
+  );
+}
+```
+
+### With Icon
+
+```typescript
+import { MaterialIcons } from '@expo/vector-icons';
+import Button from '@/components/common/buttons/button';
+
+function IconButton() {
+  return (
+    <Button
+      onPress={() => {}}
+      icon={<MaterialIcons name="send" size={24} color="white" />}
+      iconPosition="right"
+    >
+      Send Message
+    </Button>
+  );
+}
+```
+
+
+### Custom Styling
+
+<Info>
+    Don't forget to use `constants/appConstants.ts` to defining your theme.
+</Info>
+
+```typescript
+import Button from '@/components/common/buttons/button';
+
+export const StyledButton = () => {
+  return (
+    <Button
+      onPress={() => {}}
+      bgColor="#FF5733"
+      borderColor="#CC4427"
+      borderWidth={2}
+      height={50}
+      style={{
+        marginVertical: 10,
+        width: '90%'
+      }}
+    >
+      Custom Style
+    </Button>
+  );
+}
+```
+
+
+## Styling
+
+The button comes with default styles that can be customized:
+
+- Default border radius from `BORDER_RADIUS.sm`
+- Flexible height (default from `BUTTON_HEIGHT.md`)
+- Pressed state reduces opacity to 0.8 and scales to 0.99
+- Disabled state reduces opacity to 0.5
+- Icons have horizontal margin from `MARGIN.sm`
+
+## Theme Integration
+
+The button automatically integrates with your app's theme system using the `useTheme` hook:
+
+```typescript
+import Button from '@/components/common/buttons/button';
+
+export const ThemedButton = () => {
+    return (
+        <Button
+            onPress={() => {}}
+            // bgColor will default to Colors[mode].button if not specified
+        >
+            Themed Button
+        </Button>
+    );
+}
+```
+
+## Notes
+
+- Haptic feedback is automatically triggered on button press (native platforms only)
+- Loading state automatically disables the button
+- The button supports both single and array style props for flexible styling
+- Icons are wrapped in a View container with horizontal margin
+- The component is fully type-safe with TypeScript
+
+## Best Practices
+
+1. Always provide a meaningful onPress handler
+2. Use loading state for async operations
+3. Provide appropriate feedback for disabled states
+4. Consider using icons to enhance visual communication
+5. Maintain consistent styling across your application
+6. Use the theme system for consistent color schemes
+

@@ -4,8 +4,10 @@ description: 'Customize your app appearance with theming'
 ---
 
 <Frame>
-<img src="/images/theme.png" alt="Theming" className="w-full h-full object-contain rounded-xl" />
+<img src="/images/theme.png" alt="Theming" className="w-full h-full rounded-xl" />
 </Frame>
+
+
 ## Features
 
 1. Light / Dark / System mode
@@ -40,6 +42,47 @@ description: 'Customize your app appearance with theming'
         },
     };
     ```
+    </Step>
+</Steps>
+
+## Use Theme in your components.
+Actually, you don't need that. Because all components are working with the theme automatically.
+
+But specific case:
+
+<Steps>
+    <Step>
+    Go to your component file and use `const { mode } = useTheme();` hook.
+    </Step>
+    <Step>
+```tsx
+import { useTheme } from '@/hooks/useTheme';
+
+const MyComponent = () => {
+    const { mode } = useTheme();
+    return (
+        <View>
+            // 1. Case
+            <Text style={{ color: mode === 'dark' ? Colors.dark.primary : Colors.light.primary }}> 
+            // or
+            // 2. Case
+            // I prefer this one. But if you want to use Text, use <ThemedText /> 😁
+            // You don't need to use this examples. ThemedText is better.
+             <Text style={{ color: Colors[mode].primary }}> 
+                {mode}
+            </Text>
+        </View>
+    );
+}
+```
+    <Warning>
+        You can use `Colors` object to get colors.
+    </Warning>
+    </Step>
+    <Step>
+        <Card title="ThemedText (click me)" icon="text" href="/components/typography">
+            You can use `<ThemedText>` component to change your text color according to the theme.
+        </Card>
     </Step>
 </Steps>
 

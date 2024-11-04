@@ -3,16 +3,74 @@ title: 'Input Components'
 description: 'Customizable input components'
 ---
 
-# Button Components
+The `Input` component is a customizable text input field designed for use in React Native applications. It supports various features such as icons, error handling, and animated styles, making it a versatile choice for user input.
 
-A collection of button components for various use cases.
+## Usage
 
-## Available Buttons
+To use the `Input` component, import it into your file and include it in your JSX. You can customize it with various props to fit your design needs.
 
-- Text Input
-- Number Input
-- Email Input
-- Password Input
-- Search Input
-- Social Login Buttons
-- Loading Button
+```tsx
+import Input from '@/components/common/input';
+const MyComponent = () => {
+    return (
+        <Input
+            leftIcon={<MyLeftIcon />}
+            rightIcon={<MyRightIcon />}
+            placeholder="Enter text"
+            error="This field is required"
+            onFocus={() => console.log('Input focused')}
+            onBlur={() => console.log('Input blurred')}
+        />
+    );
+};
+```
+
+
+## Props
+
+The `Input` component accepts the following props:
+
+| Prop                  | Type                | Description                                                                                     |
+|-----------------------|---------------------|-------------------------------------------------------------------------------------------------|
+| `leftIcon`            | `React.ReactNode`   | An optional icon to display on the left side of the input.                                    |
+| `rightIcon`           | `React.ReactNode`   | An optional icon to display on the right side of the input.                                   |
+| `error`               | `string`            | An optional error message to display below the input.                                         |
+| `containerStyle`      | `ViewStyle`         | Custom styles for the container of the input.                                                 |
+| `inputStyle`          | `ViewStyle`         | Custom styles for the text input itself.                                                      |
+| `leftIconStyle`       | `ViewStyle`         | Custom styles for the left icon.                                                               |
+| `rightIconStyle`      | `ViewStyle`         | Custom styles for the right icon.                                                              |
+| `fontSize`            | `number`            | The font size of the input text. Defaults to `FONT_SIZE.md`.                                   |
+| `fontFamily`          | `string`            | The font family of the input text.                                                             |
+| `height`              | `number`            | The height of the input field. Defaults to `INPUT_HEIGHT.md`.                                  |
+| `borderColor`         | `string`            | The color of the input border.                                                                  |
+| `borderWidth`         | `number`            | The width of the input border. Defaults to `BORDER_WIDTH.sm`.                                  |
+| `borderRadius`        | `number`            | The border radius of the input. Defaults to `BORDER_RADIUS.sm`.                                |
+| `placeholderTextColor`| `string`            | The color of the placeholder text.                                                              |
+| `selectionColor`      | `string`            | The color of the text selection.                                                                |
+| `cursorColor`         | `string`            | The color of the text cursor.                                                                   |
+| `...restProps`        | `TextInputProps`    | Any additional props that can be passed to the underlying `TextInput` component.               |
+
+## Example
+
+Here’s a complete example of how to use the `Input` component with various props:
+
+
+```tsx
+import React from 'react';
+import Input from '@/components/common/input';
+const Example = () => {
+    return (
+        <Input
+            leftIcon={<MyLeftIcon />}       
+            rightIcon={<MyRightIcon />}
+            placeholder="Type here..."
+            error="Invalid input"
+            fontSize={16}
+            borderColor="#000"
+            onFocus={() => console.log('Focused')}  
+            onBlur={() => console.log('Blurred')}
+        />
+    );
+};
+export default Example;
+```

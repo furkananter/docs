@@ -1,0 +1,30 @@
+---
+title: Collapsible
+description: Collapsible component
+---
+
+<Info>
+    The `Collapsible` component is used to create a collapsible section that can expand or collapse to show or hide its content.
+</Info>
+
+This is basically like a `Accordion` component.
+
+## Props
+
+| Prop      | Type                     | Description                                                              |
+|-----------|--------------------------|--------------------------------------------------------------------------|
+| children  | `React.ReactNode`        | The child components to be rendered inside the collapsible section.     |
+| title     | `string`                 | The title of the collapsible section that triggers the expand/collapse. |
+
+## Usage Example
+
+```tsx
+import { Collapsible } from '@/components/common/Collapsible';
+const App = () => {
+  return (
+    <Collapsible title="Click to Expand">
+        <ThemedText>This is the content that can be collapsed.</ThemedText>
+    </Collapsible>
+  );
+};
+```

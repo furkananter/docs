@@ -1,0 +1,67 @@
+---
+title: 'PressableOpacity'
+description: 'A customizable Pressable component that provides haptic feedback and opacity effects on press.'
+---
+
+`PressableOpacity` is a customizable button component built for React Native applications. It provides haptic feedback on press and visual feedback through opacity and scaling effects.
+
+## Installation
+
+Ensure you have the necessary dependencies:
+
+```bash
+npm install expo-haptics
+```
+
+## Import
+
+```typescript
+import PressableOpacity from '@/components/common/buttons/pressable-opacity'
+```
+
+
+## Props
+
+| Prop      | Type                     | Required | Description                                           |
+|-----------|--------------------------|----------|-------------------------------------------------------|
+| `{style}` | `StyleProp<ViewStyle>`   | No       | Custom styles for the Pressable component.            |
+| `{onPress}` | `((event: GestureResponderEvent) => void)` | Yes      | Function to call when the button is pressed.          |
+| `{children}`| `React.ReactNode`        | Yes      | Content to display inside the button.                 |
+
+## Usage
+
+### Basic Usage
+
+```typescript
+import React from 'react';
+import { Text } from 'react-native';
+import PressableOpacity from '@/components/common/buttons/pressable-opacity';
+
+const MyButton = () => {
+  const handlePress = () => {
+    console.log('Button pressed!');
+  };
+  return (
+    <PressableOpacity onPress={handlePress} style={{ padding: PADDING.md, backgroundColor:COLORS.dark.primary }}>
+      <ThemedText>Press Me</ThemedText>
+    </PressableOpacity> 
+  );
+};
+```
+
+
+### Explanation
+
+- **`{onPress}`**: This prop is required and defines the function that will be executed when the button is pressed.
+- **`{style}`**: This prop allows you to customize the appearance of the button. In the example, we set padding and background color.
+- **`{children}`**: The content inside the button, which can be any React node, such as text or icons.
+
+### Visual Feedback
+
+The `PressableOpacity` component provides visual feedback by changing its opacity and scale when pressed, enhancing the user experience. Haptic feedback is also triggered on native platforms, providing tactile feedback to the user.
+
+This component is ideal for creating interactive buttons in your React Native applications, ensuring a responsive and engaging user interface.
+
+<Info>
+ I really enjoy using this.
+</Info>

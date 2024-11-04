@@ -1,0 +1,50 @@
+---
+title: 'ThemedView'
+description: 'A customizable view component that adapts its background color based on the current theme.'
+---
+
+`ThemedView` is a customizable view component designed for React Native applications. It adapts its background color based on the current theme (light or dark) and allows for additional styling.
+
+## Installation
+
+Ensure you have the necessary dependencies:
+
+
+## Import
+
+```typescript
+import { ThemedView } from '@/components/common/view';
+```
+
+
+## Props
+
+| Prop          | Type                     | Required | Description                                           |
+|---------------|--------------------------|----------|-------------------------------------------------------|
+| `{style}`     | `StyleProp<ViewStyle>`   | No       | Custom styles for the view component.                 |
+| `{lightColor}`| `string`                 | No       | Background color for light mode.                      |
+| `{darkColor}` | `string`                 | No       | Background color for dark mode.                       |
+| `{...otherProps}` | `ViewProps`          | No       | Additional props to pass to the underlying View.      |
+
+## Usage
+
+### Basic Usage
+
+```typescript
+import React from 'react';
+import { PADDING } from '@/constants/appConstants';
+import { ThemedText } from '@/components/common/typography';
+import { ThemedView } from '@/components/common/view';
+
+const MyComponent = () => {
+    return (
+        <ThemedView lightColor="#ffffff" darkColor="#000000" style={{ padding: PADDING.md }}>
+            <ThemedText>Hello, World!</ThemedText>
+        </ThemedView>
+    );
+};
+```
+
+<Info>
+    The `{lightColor}` and `{darkColor}` props are optional. If not provided, the component will use the default colors defined in the theme.
+</Info>

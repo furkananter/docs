@@ -1,0 +1,79 @@
+---
+title: 'Form Field'
+description: 'A reusable form field component that integrates React Hook Form with custom input styling'
+---
+
+FormField is a reusable component that combines React Hook Form's functionality with a custom Input component, providing a seamless form handling experience in React Native applications.
+
+## Installation
+
+The FormField component relies on the following dependencies:
+
+Here’s a complete example of how to use the `FormField` component with various props:
+
+
+## Import
+```tsx
+import FormField from '@/components/common/form-field';
+```
+
+
+## Features
+
+- Seamless integration with React Hook Form
+- Built-in error handling and validation
+- Customizable styling
+- Support for icons (left and right)
+- TypeScript support with full type safety
+- Keyboard type customization
+- Secure text entry support for password fields
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `name` | `FieldPath<TFieldValues>` | Yes | Field name for form registration |
+| `control` | `Control<TFieldValues>` | Yes | React Hook Form control object |
+| `rules` | `RegisterOptions` | No | Validation rules for the field |
+| `placeholder` | `string` | Yes | Placeholder text for the input |
+| `secureTextEntry` | `boolean` | No | Toggle password visibility (default: false) |
+| `keyboardType` | `KeyboardTypeOptions` | No | Keyboard type for input (default: 'default') |
+| `leftIcon` | `React.ReactNode` | No | Icon component to display on the left |
+| `rightIcon` | `React.ReactNode` | No | Icon component to display on the right |
+| `containerStyle` | `ViewStyle` | No | Style object for the container |
+| `inputStyle` | `ViewStyle` | No | Style object for the input |
+
+## Usage
+
+### Basic Usage
+```tsx
+import { useForm } from 'react-hook-form';
+import FormField from '@/components/common/form-field';
+
+function LoginForm() {
+    const { control } = useForm({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+    });
+    return (
+        <>
+            <FormField
+                name="email"
+                control={control}
+                placeholder="Email"
+                keyboardType="email-address"
+                rules={{ required: 'Email is required' }}
+            />
+            <FormField
+                name="password"
+                control={control}
+                placeholder="Password"
+                secureTextEntry
+                rules={{ required: 'Password is required' }}
+            />
+        </>
+    );
+}
+```

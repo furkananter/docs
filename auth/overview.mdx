@@ -4,7 +4,7 @@ description: Ship Mobile Fast comes with pre-built authentication flows using Ex
 ---
 
 <Frame>
-<img src="/images/authentication.png" alt="Auth" className="w-full h-full object-contain rounded-xl" />
+<img src="/images/authentication.png" alt="Auth" className="w-full h-full rounded-xl" />
 </Frame>
 
 ## Features
@@ -37,7 +37,6 @@ description: Ship Mobile Fast comes with pre-built authentication flows using Ex
     ```js {1}
     import { useAuth } from '@/context/SupabaseProvider';
 
-
     const {
       user,
       session,
@@ -62,59 +61,71 @@ description: Ship Mobile Fast comes with pre-built authentication flows using Ex
 
       ## Auth Functions
     <AccordionGroup>
-      <Accordion title="Sign In With Email/Password">
+      <Accordion title="Sign In With Email/Password" icon="envelope">
 
           To sign in with email/password, use the `signIn` function.
           ```js 
           signIn('email@example.com', 'password');
           ```
       </Accordion>
-      <Accordion title="Sign Up With Email/Password">
+      <Accordion title="Sign Up With Email/Password" icon="user-plus">
         To sign up with email/password, use the `signUp` function.
         ```js 
         signUp('email@example.com', 'password');
         ```
       </Accordion>
-      <Accordion title="Sign In With Google">
+      <Accordion title="Sign In With Google" icon="google">
         To sign in with Google, use the `signInWithGoogle` function.
         ```js 
         signInWithGoogle();
         ```
       </Accordion>
-      <Accordion title="Sign In With Apple">
+      <Accordion title="Sign In With Apple" icon="apple">
         To sign in with Apple, use the `signInWithApple` function.
         ```js 
         signInWithApple();
         ```
       </Accordion>
-      <Accordion title="Create Session From URL">
+      <Accordion title="Create Session From URL" icon="sparkles">
         To create a session from a URL, use the `createSessionFromUrl` function.
         <Info>
             Magic happens here. Don't change this.
         </Info>
       </Accordion>
-      <Accordion title="Handle Show Password">
+      <Accordion title="Handle Show Password" icon="lock">
         To handle show password on the password input, use the `handleShowPassword` function.
         ```js 
         handleShowPassword();
         ```
       </Accordion>
-      <Accordion title="Error Handling">
+      <Accordion title="Error Handling" icon="triangle-exclamation">
         To handle errors, use the `handleError` function.
         ```js 
         handleError(error);
         ```
       </Accordion>
-      <Accordion title="Send New Password Link">
+      <Accordion title="Send New Password Link" icon="envelope">
         To send a new password link, use the `sendNewPasswordLink` function.
         ```js 
         sendNewPasswordLink('email@example.com');
         ```
       </Accordion>
-      <Accordion title="Set New Password">
+      <Accordion title="Set New Password" icon="lock">
         To set a new password, use the `setNewPassword` function.
         ```js 
         setNewPassword('newPassword');
+        ```
+      </Accordion>
+      <Accordion title="Sign Out" icon="right-from-bracket">
+        To sign out, use the `signOut` function.
+        ```js 
+        signOut();
+        ```
+      </Accordion>
+      <Accordion title="Send Magic Link" icon="sparkles">
+        To send a magic link, use the `sendMagicLink` function.
+        ```js 
+        sendMagicLink('email@example.com');
         ```
       </Accordion>
     </AccordionGroup>    

@@ -1,0 +1,50 @@
+---
+title: 'Redux Toolkit'
+description: 'Integrate Redux Toolkit in your Expo app'
+---
+
+
+<Frame>
+    <img src="/images/redux.png" alt="Redux Toolkit" className="w-full h-full rounded-xl" />
+</Frame>
+
+
+<Tip>
+    Redux Toolkit is a powerful tool for managing state in your React Native app. It is a set of tools that help you write better Redux code faster.
+</Tip>
+
+Under the hood, we are using Redux Toolkit for state management.
+
+<Steps>
+    <Step>
+        Go to `@/store/index.ts` file.
+    </Step>
+    <Step>
+        You'll see bunch of codes. But Important part is:
+```tsx
+        export const store = configureStore({
+          reducer: {
+            theme: themeReducer,
+            search: searchReducer,
+            admob: admobReducer,
+            // You can add more reducers here
+          },
+        });
+```
+    </Step>
+    <Step>
+        Theme Reducer works for Dark / Light / System theme.
+    </Step>
+    <Step>
+        Search Reducer works for search state. Like Social Media App Search.
+    </Step>
+    <Step>
+        <Tip>
+            If you don't use Google Admob, you can remove Admob Reducer.
+        </Tip>
+        Admob Reducer works for AdMob state.
+    </Step>
+</Steps>
+<Check>
+    Thats it! You can create your own reducers and add them to the store.
+</Check>
