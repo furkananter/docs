@@ -3,27 +3,31 @@ title: Overview
 description: Ship Mobile Fast comes with pre-built authentication flows using Expo's SecureStore and your choice of authentication providers.
 ---
 
+<Frame>
+<img src="/images/authentication.png" alt="Auth" className="w-full h-full object-contain rounded-xl" />
+</Frame>
 
 ## Features
 
 <CardGroup cols={2}>
-      <Card title="Email/Password" icon="envelope" href="#">
+      <Card title="Email/Password" icon="envelope" href="#how-to-use">
         Users can sign in with their email and password.
       </Card>
-      <Card title="Social OAuth" icon="apple" href="#">
+      <Card title="Social OAuth" icon="apple" href="/auth/oauth">
         We have Google and Apple OAuth support.
       </Card>
-      <Card title="Magic Link" icon="sparkles" href="#">  
+      <Card title="Magic Link" icon="sparkles" href="#how-to-use">  
         Sending a magic link to the user's email address
       </Card>
-      <Card title="Forgot Password" icon="lock" href="#">
+      <Card title="Forgot Password" icon="lock" href="/auth/forgot-password">
         If your users forget their password, they can reset it.
       </Card>
-      <Card title="Verify Email" icon="envelope" href="#">
+      <Card title="Verify Email" icon="envelope" href="/auth/email-verification">
         Users can verify their email address in the app.
       </Card> 
     </CardGroup>
 
+## How to use?
 <Tabs>
   <Tab title="Supabase">
     <Check>

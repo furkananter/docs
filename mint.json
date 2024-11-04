@@ -47,7 +47,7 @@
     {
       "group": "Get Started",
       "icon": "rocket",
-      "pages": ["get-started", "setup", "quickstart"]
+      "pages": ["get-started", "setup", "quickstart", "tech-stack"]
     },
     {
       "group": "Authentication",
@@ -60,11 +60,7 @@
         "auth/email-verification"
       ]
     },
-    {
-      "group": "Database",
-      "icon": "database",
-      "pages": ["database/supabase", "database/firebase", "database/mongodb"]
-    },
+
     {
       "group": "Monetization",
       "icon": "dollar-sign",
