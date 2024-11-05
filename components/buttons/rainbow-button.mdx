@@ -1,0 +1,95 @@
+---
+title: 'Rainbow Button'
+description: 'A customizable button component with animated rainbow gradient border effect.'
+---
+
+`RainbowButton` is an animated button component that features a rotating gradient border effect. It's built with React Native Reanimated and Expo Linear Gradient, providing a visually appealing interactive element.
+
+## Installation
+
+Ensure you have the necessary dependencies:
+
+```bash
+npm install expo-linear-gradient
+```
+
+## Import
+
+```tsx
+import { RainbowButton } from '@/components/common/buttons/rainbow/rainbow-button';
+```
+
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `{onPress}` | `() => void` | Yes | Function to call when button is pressed |
+| `{style}` | `ViewStyle` | No | Custom styles for the container |
+| `{children}` | `React.ReactNode` | Yes | Content to display inside the button |
+| `{colors}` | `string[]` | No | Array of colors for gradient (default: `['#00ff4e', '#000']`) |
+| `{duration}` | `number` | No | Animation duration in milliseconds |
+| `{bgColor}` | `string` | No | Background color of the button |
+| `{buttonStyle}` | `ViewStyle` | No | Custom styles for the button inner container |
+| `{height}` | `number` | No | Height of the button |
+| `{borderRadius}` | `number` | No | Border radius of the button |
+
+## Usage
+
+### Basic Usage
+
+```tsx
+import React from 'react';
+import { Text } from 'react-native';
+import { RainbowButton } from '@/components/common/buttons/rainbow/rainbow-button';
+
+const MyComponent = () => {
+    return (
+        <RainbowButton onPress={() => console.log('Pressed!')}>
+            <Text style={{ color: 'white' }}>Rainbow Button</Text>
+        </RainbowButton>
+    );
+};
+```
+
+### Custom Colors and Duration
+
+```tsx
+const CustomRainbowButton = () => {
+    return (
+        <RainbowButton
+            onPress={() => console.log('Pressed!')}
+            colors={['#FF0000', '#00FF00', '#000' /* USE DIRECTLYDARK/LIGHT COLOR AT THE END*/]}
+            duration={2000}
+            height={50}
+            borderRadius={25}
+            bgColor="#FFFFFF"
+        >
+            <Text style={{ color: 'black' }}>Custom Rainbow</Text>
+        </RainbowButton>
+    );
+};  
+```
+
+<Tip>
+Hint: Use direct dark/light color at the end of the colors array to make the gradient effect more subtle.
+</Tip>
+
+### Explanation
+
+- **`{onPress}`**: Required callback function that executes when the button is pressed
+- **`{colors}`**: Optional array of colors that define the gradient effect
+- **`{duration}`**: Optional animation duration in milliseconds for one complete rotation
+- **`{bgColor}`**: Optional background color of the button's content area
+- **`{height}`**: Optional custom height for the button
+- **`{borderRadius}`**: Optional border radius value for rounded corners
+
+### Animation
+
+The component features a continuous rotation animation of the gradient border, creating a rainbow effect. The animation is powered by React Native Reanimated for smooth performance.
+
+### Theme Integration
+
+The button automatically integrates with your app's theme system, adapting its background color based on the current theme mode (light/dark).
+
+This component is perfect for creating eye-catching call-to-action buttons or highlighting important interactive elements in your React Native application.

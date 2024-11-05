@@ -1,0 +1,72 @@
+---
+title: 'Overview'
+description: 'Collection of customizable button components for React Native applications'
+---
+Our button library provides a comprehensive set of customizable button components for React Native applications.
+
+## Available Button Types
+
+### Base Buttons
+- [Button](/components/buttons/base/button) - Standard button component with haptic feedback
+- [PressableOpacity](/components/buttons/base/pressable-opacity) - Base pressable component with opacity animation
+
+### Animated Buttons
+- [RainbowButton](/components/buttons/rainbow/rainbow-button) - Button with rotating gradient border
+- [RainbowButton2](/components/buttons/rainbow/rainbow-button2) - Enhanced gradient border button
+- [RainbowButton3](/components/buttons/rainbow/rainbow-button3) - Full gradient background button
+- [RippleButton](/components/buttons/ripple-button) - Material Design ripple effect button
+- [ShinyButton](/components/buttons/shiny-button) - Button with shine animation effect
+
+### Selection Buttons
+- [RadioButton](/components/buttons/radio-button) - Animated radio selection button
+- [LanguageButton](/components/buttons/language-button) - Language selection button with flags
+
+## Installation
+```bash
+npm install react-native-reanimated expo-linear-gradient expo-haptics @expo/vector-icons react-native-gesture-handler
+```
+
+## Common Features
+
+- Haptic feedback support
+- Theme integration (light/dark mode)
+- Accessibility support
+- Cross-platform compatibility
+- Customizable styles and animations
+- Loading and disabled states
+
+## Usage Example
+
+```typescript   
+import { Button, RainbowButton, RippleButton } from '@/components/common/buttons';
+function ButtonExample() {
+    return (
+            <>
+            <Button onPress={() => console.log('Pressed')}>
+                Basic Button
+            </Button>
+            <RainbowButton
+                onPress={() => console.log('Pressed')}
+                colors={['#1DB954', '#00ff4e']}
+            >
+                Gradient Button
+            </RainbowButton>
+            <RippleButton
+                onPress={() => console.log('Pressed')}
+                color="#1DB954"
+            >
+                Ripple Effect
+            </RippleButton>
+        </>
+    );
+}
+```
+
+
+## Best Practices
+
+1. Choose the appropriate button type for your use case
+2. Maintain consistent styling across your application
+3. Always handle loading and error states
+4. Provide proper feedback for user interactions
+5. Ensure accessibility compliance

@@ -1,0 +1,49 @@
+---
+title: 'Ripple Button'
+description: 'Material Design inspired button with ripple effect animation'
+---
+
+A Material Design inspired button component that features a ripple effect animation and haptic feedback.
+
+## Installation
+
+```bash
+npm install react-native-reanimated react-native-gesture-handler expo-haptics
+```
+
+## Import
+
+```typescript
+import RippleButton from '@/components/common/buttons/ripple-button';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `onPress` | `() => void` | Yes | - | Function called when pressed |
+| `color` | `string` | No | theme.primary | Ripple effect color |
+| `icon` | `React.ReactNode` | No | - | Icon component |
+| `iconPosition` | `'left' \| 'right'` | No | `'left'` | Icon position |
+| `loading` | `boolean` | No | `false` | Loading state |
+| `disabled` | `boolean` | No | `false` | Disabled state |
+| `duration` | `number` | No | `800` | Animation duration |
+| `height` | `number` | No | `BUTTON_HEIGHT.md` | Button height |
+| `borderRadius` | `number` | No | `BORDER_RADIUS.md` | Border radius |
+
+## Examples
+
+```typescript
+function Example() {
+  return (
+    <RippleButton
+      onPress={() => console.log('Pressed')}
+      color="#1DB954"
+      icon={<Icon name="star" />}
+      iconPosition="left"
+    >
+      <Text>Ripple Effect</Text>
+    </RippleButton>
+  );
+}
+```

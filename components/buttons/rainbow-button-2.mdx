@@ -1,0 +1,127 @@
+---
+title: 'Rainbow Button 2'
+description: 'Enhanced button component with customizable gradient border animation'
+---
+
+An enhanced version of the Rainbow Button with improved gradient border animations and additional customization options.
+
+## Installation
+
+```bash
+npm install react-native-reanimated expo-linear-gradient
+```
+
+## Import
+
+```typescript
+import { RainbowButton2 } from '@/components/common/buttons/rainbow/rainbow-button2';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `onPress` | `() => void` | Yes | - | Function called when pressed |
+| `colors` | `string[]` | No | `['#1DB954', '#00ff4e', '#333']` | Gradient colors array |
+| `duration` | `number` | No | `ANIMATION_DURATION.D30` | Animation duration |
+| `bgColor` | `string` | No | theme.background | Background color |
+| `height` | `number` | No | `BUTTON_HEIGHT.md` | Button height |
+| `borderRadius` | `number` | No | `BORDER_RADIUS.md` | Border radius |
+| `m` | `number` | No | - | Margin override |
+| `style` | `ViewStyle` | No | - | Container style |
+| `buttonStyle` | `ViewStyle` | No | - | Inner button style |
+
+## Examples
+
+### Basic Usage
+
+```typescript
+function Example() {
+  return (
+    <RainbowButton2
+      onPress={() => console.log('Pressed')}
+      colors={['#1DB954', '#00ff4e', '#333']}
+    >
+      <Text>Enhanced Gradient</Text>
+    </RainbowButton2>
+  );
+}
+```
+
+### Custom Configuration
+
+```typescript
+function CustomExample() {
+  return (
+    <RainbowButton2
+      onPress={() => console.log('Pressed')}
+      colors={['#FF0000', '#00FF00', '#0000FF', '#FF00FF']}
+      duration={2000}
+      height={50}
+      borderRadius={25}
+      m={10}
+    >
+      <Text>Custom Gradient</Text>
+    </RainbowButton2>
+  );
+}
+```
+
+### With Theme Integration
+
+```typescript
+function ThemedExample() {
+  const { mode } = useTheme();
+  
+  return (
+    <RainbowButton2
+      onPress={() => console.log('Pressed')}
+      bgColor={Colors[mode].background}
+      colors={[Colors[mode].primary, Colors[mode].secondary]}
+    >
+      <Text>Themed Button</Text>
+    </RainbowButton2>
+  );
+}
+```
+
+## Features
+
+- Enhanced gradient border animation
+- Improved performance over RainbowButton
+- More customization options
+- Smoother transitions
+- Better theme integration
+- Optimized render cycles
+
+## Animation Details
+
+The enhanced gradient animation uses:
+- Reanimated 2's native driver
+- Optimized color interpolation
+- Improved gradient positioning
+- Smoother rotation transitions
+
+## Style Guidelines
+
+1. **Color Selection**:
+   - Use complementary colors for gradients
+   - Maintain proper contrast with content
+   - Consider theme compatibility
+
+2. **Animation Timing**:
+   - Keep duration between 2-4 seconds
+   - Use smooth easing functions
+   - Consider reduced motion preferences
+
+3. **Layout**:
+   - Maintain consistent spacing with `m` prop
+   - Use standard height values
+   - Consider button hierarchy in UI
+
+## Performance Notes
+
+- Uses native thread for animations
+- Optimized gradient calculations
+- Minimal JS bridge communication
+- Efficient rerender prevention

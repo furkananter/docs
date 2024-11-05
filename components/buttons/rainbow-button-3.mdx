@@ -1,0 +1,45 @@
+---
+title: 'Rainbow Button 3'
+description: 'Button component with full gradient background animation'
+---
+
+A button component featuring a rotating full gradient background animation effect.
+
+## Installation
+
+```bash
+npm install react-native-reanimated expo-linear-gradient
+```
+
+## Import
+
+```typescript
+import { RainbowButton3 } from '@/components/common/buttons/rainbow/rainbow-button3';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `onPress` | `() => void` | Yes | - | Function called when pressed |
+| `colors` | `string[]` | No | `['#1DB954', '#00ff4e', '#333']` | Gradient colors |
+| `duration` | `number` | No | `ANIMATION_DURATION.D30` | Animation duration |
+| `bgColor` | `string` | No | theme.background | Background color |
+| `height` | `number` | No | `BUTTON_HEIGHT.md` | Button height |
+| `borderRadius` | `number` | No | `BORDER_RADIUS.md` | Border radius |
+
+## Examples
+
+```typescript
+function Example() {
+  return (
+    <RainbowButton3
+      onPress={() => console.log('Pressed')}
+      colors={['#1DB954', '#00ff4e', '#333']}
+      duration={3000}
+    >
+      <Text>Gradient Background</Text>
+    </RainbowButton3>
+  );
+}
+```

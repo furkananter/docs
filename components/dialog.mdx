@@ -1,8 +1,107 @@
 ---
-title: Dialog
-description: Dialog component
+title: 'Dialog Modal'
+description: 'A customizable dialog modal component with platform-specific implementations for iOS and Android'
 ---
+    
+A modal dialog component that provides animated transitions and platform-specific implementations.
 
-<Tip>
-    First
-</Tip>
+## Installation
+
+```bash
+npm install react-native-reanimated expo-blur
+```
+
+## Import
+
+```typescript
+// Platform specific imports
+import Dialog from '@/components/common/modal/dialog';
+// or
+import Dialog from '@/components/common/modal/dialog/index.ios';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | Yes | - | Dialog title |
+| `description` | `string` | Yes | - | Dialog description |
+| `onConfirm` | `() => void` | No | `() => {}` | Confirmation handler |
+| `bgColor` | `string` | Yes | - | Background color |
+| `children` | `React.ReactNode` | Yes | - | Trigger component |
+| `rightButton` | `string` | Yes | - | Right button text |
+| `isLoading` | `boolean` | No | `false` | Loading state |
+| `visible` | `boolean` | Yes | - | Visibility state |
+| `setVisible` | `(visible: boolean) => void` | Yes | - | Visibility handler |
+| `animationDuration` | `number` | No | `ANIMATION_DURATION.D3` | Animation duration |
+
+## Platform Specific Features
+
+### iOS
+- Uses `BlurView` for background blur effect
+- Native blur intensity control
+- iOS-specific animations
+
+```typescript
+// iOS Example
+function iOSExample() {
+  const [visible, setVisible] = useState(false);
+  
+  return (
+    <Dialog
+      visible={visible}
+      setVisible={setVisible}
+      title="iOS Dialog"
+      description="This is an iOS specific dialog"
+      bgColor="#FFFFFF"
+      rightButton="Confirm"
+      onConfirm={() => console.log('Confirmed')}
+    >
+      <Button onPress={() => setVisible(true)}>
+        Show Dialog
+      </Button>
+    </Dialog>
+  );
+}
+```
+
+### Android
+- Uses themed background opacity
+- Platform-optimized animations
+- Android-specific styling
+
+```typescript
+// Android Example
+function AndroidExample() {
+  const [visible, setVisible] = useState(false);
+  
+  return (
+    <Dialog
+      visible={visible}
+      setVisible={setVisible}
+      title="Android Dialog"
+      description="This is an Android specific dialog"
+      bgColor="#FFFFFF"
+      rightButton="OK"
+      onConfirm={() => console.log('Confirmed')}
+    >
+      <Button onPress={() => setVisible(true)}>
+        Show Dialog
+      </Button>
+    </Dialog>
+  );
+}
+```
+
+## Animation Details
+
+The dialog uses Reanimated for smooth animations:
+
+- Entry animation: Scale from 0.7 to 1.0 with opacity
+- Exit animation: Scale down with fade out
+- Custom easing functions for natural movement
+- Platform-specific timing adjustments
+
+## Implementation References
+
+### iOS Implementation

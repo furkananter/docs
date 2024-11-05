@@ -1,0 +1,44 @@
+---
+title: 'Language Button'
+description: 'Specialized button component for language selection with flag display'
+---
+
+A specialized button component designed for language selection, featuring flag display and animated selection state.
+
+## Installation
+
+```bash
+npm install expo-image @expo/vector-icons react-native-reanimated
+```
+
+## Import
+
+```typescript
+import LanguageButton from '@/components/common/buttons/language-button';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `item` | `{ code: string; name: string; flag: string; }` | Yes | - | Language item data |
+| `isActive` | `boolean` | Yes | - | Selection state |
+| `onPress` | `() => void` | Yes | - | Selection handler |
+
+## Examples
+
+```typescript
+function Example() {
+  return (
+    <LanguageButton
+      item={{
+        code: 'en',
+        name: 'English',
+        flag: 'GB'
+      }}
+      isActive={true}
+      onPress={() => console.log('Selected')}
+    />
+  );
+}
+```

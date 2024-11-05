@@ -104,15 +104,21 @@
       "pages": [
         "components/overview",
         "components/view",
-        "components/button",
-        "components/pressable-opacity",
-        "components/radio-button",
-        "components/ripple-button",
-        "components/shiny-button",
-        "components/rainbow-button",
-        "components/rainbow-button-2",
-        "components/rainbow-button-3",
-        "components/language-button",
+        {
+          "group": "Button Components",
+          "pages": [
+            "components/buttons/overview",
+            "components/buttons/button",
+            "components/buttons/pressable-opacity",
+            "components/buttons/radio-button",
+            "components/buttons/ripple-button",
+            "components/buttons/shiny-button",
+            "components/buttons/rainbow-button",
+            "components/buttons/rainbow-button-2",
+            "components/buttons/rainbow-button-3",
+            "components/buttons/language-button"
+          ]
+        },
         "components/icons",
         "components/images",
         "components/collapsible",

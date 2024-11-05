@@ -23,6 +23,33 @@ You have prebuilt delete account screen with custom radio buttons.
     Path: `/app/(auth)/settings/delete-account.tsx`
 </Note>
 
+<Steps>
+<Step>
+    For changing the button texts, you should go `/data/DeleteAccount.ts`
+</Step>
+<Step>
+    You will see `DeleteAccountReasons` array.
+</Step>
+<Step>
+    If you want to change or add new buttons, you must go `/i18n/locales/<language>/translation.json`
+</Step>
+<Step>
+    Find the `settings.deleteAccount.reasons` object.
+</Step>
+<Step>
+    Add the new reason to the `reasons` array.
+</Step>
+<Step>
+    The last step, you need to implement your own logic for deleting the account.
+</Step>
+</Steps>
+
+<Check>
+Everything will be working automatically. You're done.
+</Check>
+
+
+
 <Frame className="w-3/4 aspect-square">
 <img src="/images/mockups/deleteaccount.png" alt="Delete Account Result" width={300} />  
 </Frame>

@@ -1,0 +1,49 @@
+---
+title: 'Radio Button'
+description: 'Animated radio button component with label and description support'
+---
+    
+An animated radio button component with support for labels, descriptions, and custom icons.
+
+## Installation
+
+```bash
+npm install react-native-reanimated @expo/vector-icons
+```
+
+## Import
+
+```typescript
+import RadioButton from '@/components/common/buttons/radio-button';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `selected` | `boolean` | Yes | - | Selection state |
+| `onSelect` | `() => void` | Yes | - | Selection handler |
+| `label` | `string` | Yes | - | Button label |
+| `value` | `string` | No | - | Optional value text |
+| `description` | `string` | No | - | Optional description |
+| `color` | `string` | No | theme.primary | Custom color |
+| `icon` | `React.ReactNode` | No | - | Optional icon |
+| `height` | `number` | No | - | Custom height |
+
+## Examples
+
+```typescript
+function Example() {
+  const [selected, setSelected] = useState(false);
+  
+  return (
+    <RadioButton
+      selected={selected}
+      onSelect={() => setSelected(!selected)}
+      label="Choose this option"
+      description="Additional details about this option"
+      color="#1DB954"
+    />
+  );
+}
+``` 

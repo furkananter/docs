@@ -1,0 +1,48 @@
+---
+title: 'Shiny Button'
+description: 'Button component with animated shine effect'
+---
+
+A button component that features an animated shine effect moving across its surface.
+
+## Installation
+
+```bash
+npm install react-native-reanimated expo-linear-gradient
+```
+
+## Import
+
+```typescript
+import ShinyButton from '@/components/common/buttons/shiny-button';
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `onPress` | `() => void` | No | - | Function called when pressed |
+| `bgColor` | `string` | No | theme.background | Background color |
+| `buttonColor` | `string` | No | theme.shinyButtonBorderColor | Shine effect color |
+| `loading` | `boolean` | No | `false` | Loading state |
+| `disabled` | `boolean` | No | `false` | Disabled state |
+| `title` | `string` | No | - | Button text |
+| `titleType` | `ThemedTextProps['type']` | No | `'default'` | Title text style |
+| `height` | `number` | No | `BUTTON_HEIGHT.md` | Button height |
+| `width` | `number \| string` | No | `'100%'` | Button width |
+
+## Examples
+
+```typescript
+function Example() {
+  return (
+    <ShinyButton
+      onPress={() => console.log('Pressed')}
+      buttonColor="#1DB954"
+      title="Shiny Button"
+      height={50}
+      width={200}
+    />
+  );
+}
+```
