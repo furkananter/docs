@@ -7,27 +7,215 @@ description: 'Implement in-app purchases in your Expo app'
     <img src="/images/header/iap.png" alt="In-App Purchases" className="w-full h-full rounded-xl" />
 </Frame>
 
-# RevenueCat
-
 We are using [RevenueCat](https://www.revenuecat.com/) to handle in-app purchases.
+* Relevant Links:  [RevenueCat Docs](https://www.revenuecat.com/docs)
+
+<Warning>
+    First, you need an Apple Developer & Google Play Developer Account to setup in-app purchases.
+</Warning>
+
+## Setup
 
 <Steps>
     <Step>
         First, go to [RevenueCat](https://www.revenuecat.com/) and create a account.
     </Step>
     <Step>
-        After you create your account, create a new project.
+        After you create your account, click on the `Create Project` button.
+        <Frame>
+            <img src="/images/setup/iap/create-project.png" alt="Create Project" className="w-full h-full rounded-xl" />
+        </Frame>
     </Step>
     <Step>
-        After creating your project, you need to create a new app for iOS and Android.
+        After creating your project, you need to define your project name.
+        <Frame>
+            <img src="/images/setup/iap/define-your-name.png" alt="Define Your Name" className="w-full h-full rounded-xl" />
+        </Frame>
     </Step>
     <Step>
-        Then, you need to configure your apps.
-    </Step>
-    <Step>
-        <Warning>
-            I can give you steps but original RevenueCat docs are better.
-        </Warning>
-        <a href="https://docs.revenuecat.com/docs/ios-quickstart">RevenueCat Docs</a>
+        Then, we are continuing with the tabs for platform-specific setup.
+        <Frame>
+            <img src="/images/setup/iap/create-app.png" alt="Create App" className="w-full h-full rounded-xl" />
+        </Frame>
     </Step>
 </Steps>
+## How to Setup In-App Purchases for IOS & Android
+<Tabs>
+    <Tab title="iOS">
+        <Steps>
+            <Step>
+                Firstly, you need to create a new app in AppStoreConnect.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step1.png" alt="Step 1" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                After creating the new app button, you will see the following screen.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step2.png" alt="Step 2" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Warning>
+                    Please click the `Certificate Identifiers & Profiles` link.
+                </Warning>
+            </Step>
+            <Step>
+                <Frame>
+                    <img src="/images/setup/iap/ios/step3.png" alt="Step 3" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Info>
+                    Fill the App Bundle ID with your app's bundle ID. like: `com.shipmobilefast.app` We mentioned this bundle ID in the [Quick Start section](/quickstart).
+                    - I mean this is your app's bundle ID.
+                </Info>
+            </Step>
+            <Step>
+                After filling the bundle ID, click the `Continue` button and turn back to New App Adding screen.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step4.png" alt="Step 4" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Check>
+                    Please click the `Create` button.
+                </Check>
+            </Step>
+            <Step>
+                After clicking the `Create` button, you will see the following screen.
+                - Go to the `App Information` tab and scroll down to the `App Specific Shared Secret` section.
+                - Click the `Manage` button and copy the `App Specific Shared Secret`.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step5.png" alt="Step 5" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                After clicking the `Manage` button, please click the `Generate` button.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step6.png" alt="Step 6" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                After clicking the `Generate` button, you will see the following screen.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step7.png" alt="Step 7" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Warning>
+                    Please copy the `Shared Secret` value and keep it in a safe place. We will use it in the next step.
+                </Warning>
+            </Step>
+            <Step>
+                After copying the `Shared Secret` value, go back to the RevenueCat dashboard and paste it in the `App Specific Shared Secret` field.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step8.png" alt="Step 8" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Check>
+                    Please click the `Set` button. But don't close this tab. If you try to `Save Changes`, you will lose the `Shared Secret` value and you will get an error.
+                </Check>
+            </Step>
+            <Step>
+                After clicking the `Set` button, you will see the following screen. Now go to the `App Store Connect` dashboard again.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step9.png" alt="Step 9" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                After going to the `App Store Connect` dashboard, go to the `Users and Access` section.
+                1. First copy your Issuer ID and paste it on RevenueCat `Issuer ID` field.
+                2. Click the `+` button to create a new key and Download it.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step10.png" alt="Step 10" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Warning>
+                    Please click the `In-App Purchase` tab under the `Keys` section.
+                </Warning>
+            </Step>
+            <Step>
+                After clicking the `+` button, download the .p8 file and save it in a safe place. Then go back to the RevenueCat dashboard.
+                <Check>
+                    Please define your app name & bundle ID.
+                </Check>
+                <Check>
+                    Please set your App-Specific Shared Secret.
+                </Check>
+                <Check>
+                    Please upload the .p8 file to the `P8 key file from App Store Connect` field.
+                </Check>
+                <Check>
+                    Please paste your `Issuer ID` to the `Issuer ID` field.
+                </Check>
+                <Check>
+                    Please click the `Save Changes` button.
+                </Check>
+                <Frame>
+                    <img src="/images/setup/iap/ios/step11.png" alt="Step 11" className="w-full h-full rounded-xl" />
+                </Frame>
+              
+            </Step>
+            <Step>
+                <Frame>
+                    <img src="/images/setup/iap/ios/step12.png" alt="Step 12" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Check>
+                    That's it! Now we need to implement the App Store Connect API setup.
+                </Check>
+            </Step>
+            <Step>
+                ## App Store Connect API Setup
+                - Go to the `Users and Access` section.
+                - Click `App Store Connect API` tab under the `Keys` section.
+                - Click the `+` button to create a new key.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step13.png" alt="Step 13" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                Generate API key for App Store Connect API.
+                Name can be anything. Like name of your app. (Ship Mobile Fast API Key)
+                <Frame>
+                    <img src="/images/setup/iap/ios/step14.png" alt="Step 14" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Warning>
+                    Please click the `Generate` button and download the .p8 file. Please save it in a safe place.
+                </Warning>
+            </Step>
+            <Step>
+                Turn back to the RevenueCat dashboard and paste the .p8 file to the `P8 key file from App Store Connect` field.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step16.png" alt="Step 15" className="w-full h-full rounded-xl" />
+                </Frame>
+                <Check>
+                    Please paste your `Issuer ID` to the `Issuer ID` field.
+                </Check>
+                <Check>
+                    Please click the `Save Changes` button.
+                </Check>
+            </Step>
+            <Step>
+                Then click the `Reports` link.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step17.png" alt="Step 17" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                Please copy the Vendor ID and paste it to the `Vendor ID` field in the RevenueCat dashboard.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step18.png" alt="Step 18" className="w-full h-full rounded-xl" />
+                </Frame>
+            </Step>
+            <Step>
+                Copy your Public API Key and paste it to the `.env` file.
+                <Frame>
+                    <img src="/images/setup/iap/ios/step19.png" alt="Step 19" className="w-full h-full rounded-xl" />
+                </Frame>
+                ```
+                EXPO_PUBLIC_RC_APPLE_KEY=appl_...
+                EXPO_PUBLIC_RC_GOOGLE_KEY=goog_...
+                ```
+            </Step>
+            <Step>
+                That's it! You have successfully completed the setup for iOS.
+            </Step>
+        </Steps>
+    </Tab>
+    <Tab title="Android">
+        <p>Android</p>
+    </Tab>
+</Tabs>
+
+
