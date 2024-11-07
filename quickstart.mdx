@@ -216,10 +216,44 @@ For Email SMTP Service:
       <img src="/images/setup/supabase/redirect-url.png" alt="Supabase" className="w-full" />
     </Frame>
   </Step>
+
+  <Step>
+  Now open your codebase and let's start your app.
+  1. Open your terminal and run the following command:
+  ```bash
+  eas build --profile development --platform ios
+  ``` 
+  </Step>
+  <Step>
+    Probably you will see the error.
+    eas.json must be created.
+  </Step>
+  <Step>
+    Open your codebase and create `eas.json` file.
+  </Step>
+  <Step>
+  Add this code into `eas.json` file:
+  ```json eas.json {5-7}
+   "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+       "ios": {
+        "simulator": true
+      }
+    },
+  ``` 
+  </Step>
+  <Step>
+  Now run the following command again:
+  ```bash
+  eas build --profile development --platform ios
+  ``` 
+  </Step>
   <Step>
   <Info>
-      We are too close to build the app. Hold on!
+      Now your app is ready to be built. 🎉
   </Info>
-  </Step>
+  </Step> 
 </Steps>
 
