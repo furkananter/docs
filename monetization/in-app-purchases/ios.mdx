@@ -1,6 +1,6 @@
 ---
-title: 'In-App Purchases'
-description: 'Implement in-app purchases in your Expo app'
+title: 'IOS'
+description: 'Setup in-app purchases for iOS'   
 ---
 
 <Frame>
@@ -11,42 +11,16 @@ We are using [RevenueCat](https://www.revenuecat.com/) to handle in-app purchase
 * Relevant Links:  [RevenueCat Docs](https://www.revenuecat.com/docs)
 
 <Warning>
-    First, you need an Apple Developer & Google Play Developer Account to setup in-app purchases.
+    First, you need an Apple Developer Account to setup in-app purchases.
 </Warning>
 
 ## Setup
 
 <Steps>
     <Step>
-        First, go to [RevenueCat](https://www.revenuecat.com/) and create a account.
-    </Step>
-    <Step>
-        After you create your account, click on the `Create Project` button.
+        Firstly, you need to create a new app in AppStoreConnect.
         <Frame>
-            <img src="/images/setup/iap/create-project.png" alt="Create Project" className="w-full h-full rounded-xl" />
-        </Frame>
-    </Step>
-    <Step>
-        After creating your project, you need to define your project name.
-        <Frame>
-            <img src="/images/setup/iap/define-your-name.png" alt="Define Your Name" className="w-full h-full rounded-xl" />
-        </Frame>
-    </Step>
-    <Step>
-        Then, we are continuing with the tabs for platform-specific setup.
-        <Frame>
-            <img src="/images/setup/iap/create-app.png" alt="Create App" className="w-full h-full rounded-xl" />
-        </Frame>
-    </Step>
-</Steps>
-## How to Setup In-App Purchases for IOS & Android
-<Tabs>
-    <Tab title="iOS">
-        <Steps>
-            <Step>
-                Firstly, you need to create a new app in AppStoreConnect.
-                <Frame>
-                    <img src="/images/setup/iap/ios/step1.png" alt="Step 1" className="w-full h-full rounded-xl" />
+            <img src="/images/setup/iap/ios/step1.png" alt="Step 1" className="w-full h-full rounded-xl" />
                 </Frame>
             </Step>
             <Step>
@@ -200,24 +174,19 @@ We are using [RevenueCat](https://www.revenuecat.com/) to handle in-app purchase
             </Step>
             <Step>
                 Copy your Public API Key and paste it to the `.env` file.
-                <Frame>
-                    <img src="/images/setup/iap/ios/step19.png" alt="Step 19" className="w-full h-full rounded-xl" />
+                        <Frame>
+        <img src="/images/setup/iap/ios/step19.png" alt="Step 19" className="w-full h-full rounded-xl" />
                 </Frame>
                 ```
                 EXPO_PUBLIC_RC_APPLE_KEY=appl_...
                 EXPO_PUBLIC_RC_GOOGLE_KEY=goog_...
                 ```
-            </Step>
-            <Step>
-                <Check>
-                    That's it! You have successfully completed the setup for iOS.
-                </Check>
-            </Step>
-        </Steps>
-    </Tab>
-    <Tab title="Android">
-        <p>Android</p>
-    </Tab>
-</Tabs>
+    </Step>
+    <Step>
+        <Check>
+            That's it! You have successfully completed the setup for iOS.
+        </Check>
+    </Step>
+</Steps>
 
 

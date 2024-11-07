@@ -1,0 +1,99 @@
+---
+title: 'Overview'
+description: 'Overview of in-app purchases'
+---
+
+<Frame>
+    <img src="/images/header/iap.png" alt="In-App Purchases" className="w-full h-full rounded-xl" />
+</Frame>
+
+We are using [RevenueCat](https://www.revenuecat.com/) to handle in-app purchases.
+* Relevant Links:  [RevenueCat Docs](https://www.revenuecat.com/docs)
+
+<Warning>
+    First, you need an Apple Developer & Google Play Developer Account to setup in-app purchases.
+</Warning>
+
+## Setup
+
+<Steps>
+    <Step>
+        First, go to [RevenueCat](https://www.revenuecat.com/) and create a account.
+    </Step>
+    <Step>
+        After you create your account, click on the `Create Project` button.
+        <Frame>
+            <img src="/images/setup/iap/create-project.png" alt="Create Project" className="w-full h-full rounded-xl" />
+        </Frame>
+    </Step>
+    <Step>
+        After creating your project, you need to define your project name.
+        <Frame>
+            <img src="/images/setup/iap/define-your-name.png" alt="Define Your Name" className="w-full h-full rounded-xl" />
+        </Frame>
+    </Step>
+    <Step>
+        Then, we are continuing with the tabs for platform-specific setup.
+        <Frame>
+            <img src="/images/setup/iap/create-app.png" alt="Create App" className="w-full h-full rounded-xl" />
+        </Frame>
+    </Step>
+    <Step>
+        After completing two platform-specific setup, open your `app/_layout.tsx` file.
+        - Add the `RevenueCatProvider` component.
+        ```tsx
+        import {
+            RevenueCatProvider,
+            useRevenueCat,
+        } from '@/context/RevenueCatProvider';
+        ```
+    </Step>
+    <Step>
+        Find the `useEffect` hook in the `App` component.
+        ```tsx
+        //* If you want to use RevenueCat, uncomment the following lines 👇
+        const { initializeRevenueCat } = useRevenueCat();
+
+        useEffect(() => {
+            ....
+            getUserTrackingPermission();
+            // Uncomment the following line 👇
+            initializeRevenueCat(); 
+        }, []);
+        ```
+    </Step>
+    <Step>
+        Wrap the `RootLayout` component with the `RevenueCatProvider` component.
+```tsx {5,7}
+const RootLayout = () => {
+  return (
+    <Provider store={store}>
+      <AuthProvider>
+        <RevenueCatProvider>
+          {/* ... */}
+        </RevenueCatProvider>
+      </AuthProvider>
+    </Provider>
+  );
+};
+```
+    </Step>
+    <Step>
+        <Check>
+            Now you can use the `useRevenueCat` hook to get the RevenueCat instance.
+        </Check>
+    </Step>
+
+    <Step>
+        <Tip>
+            You need to configure your subscriptions on Google Play Console and App Store Connect.
+        </Tip>
+        I could have added this step too, but this is too specific for your project.
+        - I am giving you the links to the docs for Google Play Console and App Store Connect.
+        - [Google Play Console](https://www.revenuecat.com/docs/getting-started/entitlements/android-products)
+        - [App Store Connect](https://www.revenuecat.com/docs/getting-started/entitlements/ios-products)
+    </Step>
+    <Step>
+        Then we are ready to some sellings 🎉
+    </Step>
+</Steps>

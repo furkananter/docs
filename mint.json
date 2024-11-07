@@ -54,7 +54,21 @@
       "icon": "lock",
       "pages": [
         "auth/overview",
-        "auth/oauth",
+        {
+          "group": "OAuth",
+          "pages": [
+            "auth/oauth/overview",
+            "auth/oauth/apple-oauth",
+            {
+              "group": "Google oAuth",
+              "pages": [
+                "auth/oauth/google/web",
+                "auth/oauth/google/ios",
+                "auth/oauth/google/android"
+              ]
+            }
+          ]
+        },
         "auth/forgot-password",
         "auth/reset-password",
         "auth/email-verification"
@@ -64,7 +78,17 @@
     {
       "group": "Monetization",
       "icon": "dollar-sign",
-      "pages": ["monetization/admob", "monetization/in-app-purchases"]
+      "pages": [
+        "monetization/admob",
+        {
+          "group": "In-App Purchases",
+          "pages": [
+            "monetization/in-app-purchases/overview",
+            "monetization/in-app-purchases/ios",
+            "monetization/in-app-purchases/android"
+          ]
+        }
+      ]
     },
     {
       "group": "Core Features",

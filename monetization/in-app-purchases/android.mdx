@@ -1,0 +1,203 @@
+---
+title: 'Android'
+description: 'Setup in-app purchases for Android'
+---
+
+<Frame>
+  <img
+    src="/images/header/iap.png"
+    alt="In-App Purchases"
+    className="w-full h-full rounded-xl"
+  />
+</Frame>
+
+We are using [RevenueCat](https://www.revenuecat.com/) to handle in-app purchases.
+
+- Relevant Links: [RevenueCat Docs](https://www.revenuecat.com/docs)
+
+<Warning>
+  First, you need a Google Play Developer Account to setup in-app purchases.
+</Warning>
+
+## Setup
+
+<Steps>
+  <Step>
+    Firstly, you need to see like that screen in RevenueCat.
+    <Frame>
+      <img src="/images/setup/iap/android/step1.png" alt="Step 1" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Please click the link down below:
+    - Link: [Google Cloud API Console](https://console.cloud.google.com/apis/dashboard)
+  </Step>
+  <Step>
+    Create a new project or select an existing project.
+    <Frame>
+      <img src="/images/setup/iap/android/step2.png" alt="Step 2" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Go to the [Google Play Android Developer API page](https://console.cloud.google.com/apis/library/androidpublisher.googleapis.com) and [Google Play Developer Reporting API page](https://console.cloud.google.com/apis/library/playdeveloperreporting.googleapis.com)
+    <Frame>
+      <img src="/images/setup/iap/android/step3-1.png" alt="Step 3-1" className="w-full h-full rounded-xl" />
+      <img src="/images/setup/iap/android/step3-2.png" alt="Step 3-2" className="w-full h-full rounded-xl ml-2" />
+    </Frame>
+    <Check>
+      Please click the `Enable` button both of them.
+    </Check>
+  </Step>
+  <Step>
+    After clicking the `Enable` button, go home page in Google Cloud Console.
+    <Frame>
+      <img src="/images/setup/iap/android/step4.png" alt="Step 4" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>    
+    Go to IAM & Admin > Service Accounts Page
+    - Click the `Create Service Account` button.
+    - Add your Service Account Name like: `SMF RC Service Account`.
+    - Pick your first role : 'Pub/Sub Admin'
+    - Other role should be 'Monitoring Viewer'
+    - Click the `Continue` and `Done` button.
+
+    <Frame>
+
+      <img src="/images/setup/iap/android/step5.png" alt="Step 5" className="w-full h-full rounded-xl" />
+      <img src="/images/setup/iap/android/step6.png" alt="Step 6" className="w-full h-full rounded-xl ml-2" />
+    </Frame>
+  </Step>
+  <Step>
+    After clicking the `Done` button, you will see the screen like below.
+    - Click the `3 dots` button.
+    - Click the `Manage Keys` button.
+    <Frame>
+      <img src="/images/setup/iap/android/step7.png" alt="Step 7" className="w-full h-full rounded-xl" />
+    </Frame>
+
+  </Step>
+  <Step>
+    Click the `Add Key` button. Then click the `Create new key` button.
+    <Frame>
+      <img src="/images/setup/iap/android/step8.png" alt="Step 8" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+     Please pick the `JSON` and click the `Create` button.
+    <Frame>
+      <img src="/images/setup/iap/android/step9.png" alt="Step 9" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Save the JSON file and keep it in a safe place. We'll use it in the next step.
+    <Frame>
+        <img src="/images/setup/iap/android/step10.png" alt="Step 10" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    By the way: Go to [Pub/Sub Developer Notifications](https://console.cloud.google.com/apis/enableflow?apiid=pubsub)
+    <Frame>
+      <img src="/images/setup/iap/android/step11.png" alt="Step 11" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    <Frame>
+      <img src="/images/setup/iap/android/step12.png" alt="Step 12" className="w-full h-full rounded-xl" />
+    </Frame>
+
+  </Step>
+  <Step>
+    - Go to the `Google Play Console` section.
+    - Click `Users and Permissions`
+    <Frame>
+      <img src="/images/setup/iap/android/step13.png" alt="Step 13" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Go back to Google Cloud Console and Copy the service account mail.
+    <Frame>
+      <img src="/images/setup/iap/android/step14.png" alt="Step 14" className="w-full h-full rounded-xl" />
+    </Frame>
+
+  </Step>
+  <Step>
+    Paste it in here and scroll down a little bit.
+    <Frame>
+      <img src="/images/setup/iap/android/step15.png" alt="Step 15" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Click the `Account Permissions` button.
+    Grant the following permissions:
+    - View app information and download bulk reports (read-only)
+    - View financial data, orders, and cancellation survey response
+    - Manage orders and subscriptions
+    <Frame>
+      <img src="/images/setup/iap/android/step16.png" alt="Step 16" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Turn back to the RevenueCat dashboard and drop a json file in here.
+    - Write your app package name in here.
+    <Frame>
+      <img src="/images/setup/iap/android/step18.png" alt="Step 18" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Pick a Google Developer Notification Topic ID. 
+    - Click the `Connect to Google` button.
+    <Frame>
+      <img src="/images/setup/iap/android/step19.png" alt="Step 19" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step> 
+    Then you will see like this screen. Copy the Google Developer Notification Topic ID.
+    <Frame>
+      <img src="/images/setup/iap/android/step20.png" alt="Step 20" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Go to the Play Console.
+    <Frame>
+      <img src="/images/setup/iap/android/step21.png" alt="Step 21" className="w-full h-full rounded-xl" />
+    </Frame>
+  </Step>
+  <Step>
+    Click the `Create App` button if you don't have any app.
+    <Frame>
+      <img src="/images/setup/iap/android/step22.png" alt="Step 22" className="w-full h-full rounded-xl ml-2" />
+    </Frame>
+  </Step>  
+  <Step>
+   Fill the form
+    <Frame>
+      <img src="/images/setup/iap/android/step23.png" alt="Step 23" className="w-full h-full rounded-xl ml-2" />
+    </Frame>
+  </Step>  
+  <Step>    
+    Go to the `Monetization` section.
+    <Frame>
+      <img src="/images/setup/iap/android/step24.png" alt="Step 24" className="w-full h-full rounded-xl ml-2" />
+    </Frame>
+  </Step> 
+  <Step>
+   - Paste your Developer Notification Topic ID in here.
+   - Pick notification content.
+   <Frame>
+    <img src="/images/setup/iap/android/step25.png" alt="Step 25" className="w-full h-full rounded-xl ml-2" />
+  </Frame>
+  </Step>
+
+  <Step>
+    Copy the RevenueCat Public Key and paste it in `.env` file.
+    ```
+    EXPO_PUBLIC_RC_GOOGLE_KEY=goog_...
+    ```
+  </Step>
+  <Step>
+    <Check>
+      That's it! You have successfully completed the setup for Android.
+    </Check>
+  </Step>
+</Steps>
